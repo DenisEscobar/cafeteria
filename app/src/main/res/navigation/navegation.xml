@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navegation"
+    app:startDestination="@id/menuPFragment">
+
+    <fragment
+        android:id="@+id/menuPFragment"
+        android:name="com.example.mykotlinapplication.MenuPFragment"
+        android:label="MenuPFragment"
+        tools:layout="@layout/fragment_menu_p">
+        <action
+            android:id="@+id/action_menuPFragment_to_menuSegundoFragment"
+            app:destination="@id/menuSegundoFragment"
+            app:popUpTo="@id/menuPFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/menuCafeFragment"
+        android:name="com.example.mykotlinapplication.MenuCafeFragment"
+        android:label="MenuCafeFragment"
+        tools:layout="@layout/fragment_menu_cafe">
+        <action
+            android:id="@+id/action_menuCafeFragment_to_menuPFragment"
+            app:destination="@id/menuPFragment"
+            app:popUpTo="@id/menuPFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/menuSegundoFragment"
+        android:name="com.example.mykotlinapplication.MenuSegundoFragment"
+        android:label="fragment_menu_segundo"
+        tools:layout="@layout/fragment_menu_segundo" >
+        <action
+            android:id="@+id/action_menuSegundoFragment_to_menuCafeFragment"
+            app:destination="@id/menuCafeFragment"
+            app:popUpTo="@id/menuSegundoFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/contactFragment"
+        android:name="com.example.mykotlinapplication.ContactFragment"
+        android:label="fragment_contact"
+        tools:layout="@layout/fragment_contact"/>
+</navigation>
