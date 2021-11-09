@@ -31,10 +31,10 @@ class MainActivity : AppCompatActivity() {
             mytextName.sql="a"
             //binding.editTextName.setText(mytextName.sql);
 
-            if(binding.editTextName.getText().toString().equals(mytextName.name)&&binding.editTextTextPassword.getText().toString().equals(mytextName.sql)) {
+            //if(binding.editTextName.getText().toString().equals(mytextName.name)&&binding.editTextTextPassword.getText().toString().equals(mytextName.sql)) {
                 val intent = Intent(this, logged::class.java)
                 startActivity(intent)
-            }
+            //}
         }
     }
 }

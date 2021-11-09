@@ -5,11 +5,14 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import android.widget.ArrayAdapter
 import android.widget.Spinner
+import androidx.core.view.get
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.example.mykotlinapplication.databinding.FragmentMenuPBinding
 class MenuPFragment : Fragment() {
+    lateinit var model: menuViewModel
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -30,6 +33,9 @@ class MenuPFragment : Fragment() {
             }
         binding.button2.setOnClickListener {view : View ->
             view.findNavController().navigate(R.id.action_menuPFragment_to_menuSegundoFragment)
+            model = ViewModelProvider(requireActivity()).get(menuViewModel::class.java)
+            model.sendMessage(binding.spinner2.selectedItem.toString())
+
         }
         setHasOptionsMenu(true)
         return binding.root
@@ -41,5 +47,9 @@ class MenuPFragment : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return NavigationUI.onNavDestinationSelected(item,requireView().findNavController())
                 || super.onOptionsItemSelected(item)
+    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
     }
 }

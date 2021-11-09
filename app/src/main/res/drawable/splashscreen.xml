@@ -4,7 +4,6 @@
 
     <item>
         <bitmap android:src="@mipmap/cafe"
-            android:gravity="center"
-            />
+            android:gravity="center"/>
     </item>
 </layer-list>

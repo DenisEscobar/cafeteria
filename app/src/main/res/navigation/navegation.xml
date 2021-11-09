@@ -48,7 +48,11 @@
         tools:layout="@layout/fragment_contact"/>
     <fragment
         android:id="@+id/comandaFragment"
-        android:name="com.example.mykotlinapplication.comandaFragment"
-        android:label="fragment_comanda"
-        tools:layout="@layout/fragment_comanda" />
+        android:name="com.example.mykotlinapplication.ComandaFragment"
+        android:label="ComandaFragment"
+        tools:layout="@layout/fragment_comanda" >
+        <action
+            android:id="@+id/action_comandaFragment_to_menuPFragment"
+            app:destination="@id/menuPFragment" />
+    </fragment>
 </navigation>
