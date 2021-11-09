@@ -4,7 +4,7 @@
 
     <data>
         <variable name="myName"
-            type="com.example.mykotlinapplication.Principal.MyName" />
+            type="com.example.mykotlinapplication.MyName" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
