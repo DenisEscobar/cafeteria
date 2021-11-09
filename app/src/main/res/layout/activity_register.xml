@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorpantalla"
-    tools:context=".DataBase.Register2">
+    tools:context=".Principal.Register2">
 
     <EditText
         android:id="@+id/editTextEmail"

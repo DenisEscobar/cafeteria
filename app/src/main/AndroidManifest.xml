@@ -13,7 +13,7 @@
             android:name=".Principal.logged"
             android:exported="true" />
         <activity
-            android:name=".DataBase.Register2"
+            android:name=".Principal.Register2"
             android:exported="true"
             android:label="@string/title_activity_register"
             android:theme="@style/Theme.MyKotlinApplication.NoActionBar" />

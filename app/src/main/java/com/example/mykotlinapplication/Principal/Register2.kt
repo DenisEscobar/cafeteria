@@ -1,4 +1,4 @@
-package com.example.mykotlinapplication.DataBase
+package com.example.mykotlinapplication.Principal
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
-import com.example.mykotlinapplication.DataBase.Register2
 import com.example.mykotlinapplication.R
 import com.example.mykotlinapplication.databinding.ActivityMainBinding
 
