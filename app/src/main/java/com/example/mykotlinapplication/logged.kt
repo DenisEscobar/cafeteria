@@ -6,6 +6,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
+import com.example.mykotlinapplication.R
 import com.example.mykotlinapplication.databinding.ActivityLoggedBinding
 
 class logged : AppCompatActivity() {
@@ -14,7 +15,8 @@ class logged : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 //        setContentView(R.layout.activity_logged)
         val binding = DataBindingUtil.setContentView<ActivityLoggedBinding>(this,
-            R.layout.activity_logged)
+            R.layout.activity_logged
+        )
 
         val navController = this.findNavController(R.id.myNavHostFragment)
         NavigationUI.setupActionBarWithNavController(this,navController)

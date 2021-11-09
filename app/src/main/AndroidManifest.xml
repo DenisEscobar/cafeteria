@@ -18,7 +18,7 @@
             android:label="@string/title_activity_register"
             android:theme="@style/Theme.MyKotlinApplication.NoActionBar" />
         <activity
-            android:name=".MainActivity"
+            android:name=".principal.MainActivity"
             android:exported="true" />
         <activity
             android:name=".SplashScreen"

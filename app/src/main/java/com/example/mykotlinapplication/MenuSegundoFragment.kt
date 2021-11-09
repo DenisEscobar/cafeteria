@@ -8,12 +8,10 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.example.mykotlinapplication.databinding.FragmentMenuSegundoBinding
 
 class MenuSegundoFragment : Fragment() {
-    lateinit var model: menuViewModel
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -34,9 +32,6 @@ class MenuSegundoFragment : Fragment() {
         }
         binding.button3.setOnClickListener{view: View ->
             view.findNavController().navigate(R.id.action_menuSegundoFragment_to_menuCafeFragment)
-            model = ViewModelProvider(requireActivity()).get(menuViewModel::class.java)
-            model.sendMessage2(binding.spinnermenu2.selectedItem.toString())
-
         }
         return binding.root
     }
