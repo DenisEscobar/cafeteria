@@ -1,4 +1,4 @@
-package com.example.mykotlinapplication
+package com.example.mykotlinapplication.Principal
 
 import android.content.Intent
 import android.os.Bundle

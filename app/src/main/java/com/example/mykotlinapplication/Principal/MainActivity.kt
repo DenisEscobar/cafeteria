@@ -1,13 +1,11 @@
-package com.example.mykotlinapplication
+package com.example.mykotlinapplication.Principal
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
 import androidx.databinding.DataBindingUtil
+import com.example.mykotlinapplication.DataBase.Register2
+import com.example.mykotlinapplication.R
 import com.example.mykotlinapplication.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

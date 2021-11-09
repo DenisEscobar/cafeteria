@@ -1,4 +1,4 @@
-package com.example.mykotlinapplication
+package com.example.mykotlinapplication.Principal
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -11,8 +11,7 @@ class menuViewModel : ViewModel(){
         message.value = text
     }fun sendMessage2(text: String) {
         message2.value = text
-    }
-    fun sendMessage3(text: String) {
+    }fun sendMessage3(text: String) {
         message3.value = text
     }
 }

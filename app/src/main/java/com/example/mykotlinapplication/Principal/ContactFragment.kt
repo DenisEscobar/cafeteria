@@ -1,4 +1,4 @@
-package com.example.mykotlinapplication
+package com.example.mykotlinapplication.Principal
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

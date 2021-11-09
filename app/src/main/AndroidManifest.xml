@@ -10,18 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyKotlinApplication">
         <activity
-            android:name=".logged"
+            android:name=".Principal.logged"
             android:exported="true" />
         <activity
-            android:name=".Register2"
+            android:name=".DataBase.Register2"
             android:exported="true"
             android:label="@string/title_activity_register"
             android:theme="@style/Theme.MyKotlinApplication.NoActionBar" />
         <activity
-            android:name=".principal.MainActivity"
+            android:name=".DataBase.MainActivity"
             android:exported="true" />
         <activity
-            android:name=".SplashScreen"
+            android:name=".Principal.SplashScreen"
             android:exported="true"
             android:theme="@style/SplashTheme">
             <intent-filter>

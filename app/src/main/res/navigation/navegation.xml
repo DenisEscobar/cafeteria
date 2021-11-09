@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/menuPFragment"
-        android:name="com.example.mykotlinapplication.MenuPFragment"
+        android:name="com.example.mykotlinapplication.Principal.MenuPFragment"
         android:label="MenuPFragment"
         tools:layout="@layout/fragment_menu_p">
         <action
@@ -18,7 +18,7 @@
     </fragment>
     <fragment
         android:id="@+id/menuCafeFragment"
-        android:name="com.example.mykotlinapplication.MenuCafeFragment"
+        android:name="com.example.mykotlinapplication.Principal.MenuCafeFragment"
         android:label="MenuCafeFragment"
         tools:layout="@layout/fragment_menu_cafe">
         <action
@@ -32,7 +32,7 @@
     </fragment>
     <fragment
         android:id="@+id/menuSegundoFragment"
-        android:name="com.example.mykotlinapplication.MenuSegundoFragment"
+        android:name="com.example.mykotlinapplication.Principal.MenuSegundoFragment"
         android:label="fragment_menu_segundo"
         tools:layout="@layout/fragment_menu_segundo" >
         <action
@@ -43,12 +43,12 @@
     </fragment>
     <fragment
         android:id="@+id/contactFragment"
-        android:name="com.example.mykotlinapplication.ContactFragment"
+        android:name="com.example.mykotlinapplication.Principal.ContactFragment"
         android:label="fragment_contact"
         tools:layout="@layout/fragment_contact"/>
     <fragment
         android:id="@+id/comandaFragment"
-        android:name="com.example.mykotlinapplication.ComandaFragment"
+        android:name="com.example.mykotlinapplication.Principal.ComandaFragment"
         android:label="ComandaFragment"
         tools:layout="@layout/fragment_comanda" >
         <action

@@ -1,4 +1,4 @@
-package com.example.mykotlinapplication
+package com.example.mykotlinapplication.Principal
 
 import android.os.Bundle
 import android.view.*
@@ -8,6 +8,7 @@ import android.widget.Spinner
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
+import com.example.mykotlinapplication.R
 import com.example.mykotlinapplication.databinding.FragmentMenuPBinding
 class MenuPFragment : Fragment() {
     override fun onCreateView(

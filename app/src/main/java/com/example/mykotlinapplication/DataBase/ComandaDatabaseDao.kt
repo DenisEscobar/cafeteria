@@ -1,4 +1,4 @@
-package com.example.mykotlinapplication.principal
+package com.example.mykotlinapplication.DataBase
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
