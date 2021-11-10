@@ -1,4 +1,4 @@
-package com.example.mykotlinapplication.Principal
+package com.example.mykotlinapplication
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,8 +9,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
-import com.example.mykotlinapplication.R
 import com.example.mykotlinapplication.databinding.FragmentComandaBinding
+import com.example.mykotlinapplication.sharedPref.SharedApp
 
 class ComandaFragment : Fragment() {
     override fun onCreateView(
@@ -21,7 +21,7 @@ class ComandaFragment : Fragment() {
 
         val binding = DataBindingUtil.inflate<FragmentComandaBinding>(inflater,
             R.layout.fragment_comanda,container,false)
-        binding.textView2.setText("Comanda")
+        binding.textView2.setText("Comanda De "+ SharedApp.prefs.name.toString())
         binding.textView2.setOnClickListener { view:View ->
             view.findNavController().navigate(R.id.action_comandaFragment_to_menuPFragment)
         }

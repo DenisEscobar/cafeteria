@@ -3,6 +3,7 @@
     package="com.example.mykotlinapplication">
 
     <application
+        android:name=".sharedPref.SharedApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -10,18 +11,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyKotlinApplication">
         <activity
-            android:name=".Principal.logged"
+            android:name=".logged"
             android:exported="true" />
         <activity
-            android:name=".Principal.Register2"
+            android:name=".Register2"
             android:exported="true"
             android:label="@string/title_activity_register"
             android:theme="@style/Theme.MyKotlinApplication.NoActionBar" />
         <activity
-            android:name=".DataBase.MainActivity"
+            android:name=".MainActivity"
             android:exported="true" />
         <activity
-            android:name=".Principal.SplashScreen"
+            android:name=".SplashScreen"
             android:exported="true"
             android:theme="@style/SplashTheme">
             <intent-filter>

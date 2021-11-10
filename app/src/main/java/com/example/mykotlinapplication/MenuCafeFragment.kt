@@ -1,4 +1,4 @@
-package com.example.mykotlinapplication.Principal
+package com.example.mykotlinapplication
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,12 +8,12 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
-import com.example.mykotlinapplication.R
 import com.example.mykotlinapplication.databinding.FragmentMenuCafeBinding
 
 class MenuCafeFragment : Fragment() {
-
+    lateinit var model: menuViewModel
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -31,7 +31,9 @@ class MenuCafeFragment : Fragment() {
             spinner.adapter = adapter
         }
         binding.button4.setOnClickListener{view : View ->
-            view.findNavController().navigate(R.id.action_menuCafeFragment_to_menuPFragment)
+            view.findNavController().navigate(R.id.action_menuCafeFragment_to_comandaFragment)
+            model = ViewModelProvider(requireActivity()).get(menuViewModel::class.java)
+            model.sendMessage3(binding.spinnermenucafe.selectedItem.toString())
         }
         return binding.root
     }

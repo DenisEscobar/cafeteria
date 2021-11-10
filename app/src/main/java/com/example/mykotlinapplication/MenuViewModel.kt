@@ -1,4 +1,4 @@
-package com.example.mykotlinapplication.Principal
+package com.example.mykotlinapplication
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

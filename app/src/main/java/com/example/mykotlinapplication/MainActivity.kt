@@ -1,12 +1,11 @@
-package com.example.mykotlinapplication.Principal
+package com.example.mykotlinapplication
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
-import com.example.mykotlinapplication.MyName
-import com.example.mykotlinapplication.R
 import com.example.mykotlinapplication.databinding.ActivityMainBinding
+import com.example.mykotlinapplication.sharedPref.SharedApp
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -28,11 +27,11 @@ class MainActivity : AppCompatActivity() {
         boton.setOnClickListener{
             mytextName.sql="a"
             //binding.editTextName.setText(mytextName.sql);
-
-            if(binding.editTextName.getText().toString().equals(mytextName.name)&&binding.editTextTextPassword.getText().toString().equals(mytextName.sql)) {
+            SharedApp.prefs.name = binding.editTextName.text.toString()
+            //if(binding.editTextName.getText().toString().equals(mytextName.name)&&binding.editTextTextPassword.getText().toString().equals(mytextName.sql)) {
                 val intent = Intent(this, logged::class.java)
                 startActivity(intent)
-            }
+            //}
         }
     }
 }
