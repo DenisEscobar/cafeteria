@@ -21,7 +21,7 @@ class MenuPFragment : Fragment() {
 
         val spinner: Spinner =binding.spinner2
         ArrayAdapter.createFromResource(requireContext(),
-            R.array.menuprincipal,
+            R.array.menuprincipal1,
             android.R.layout.simple_spinner_item).also {
             adapter -> adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             spinner.adapter = adapter

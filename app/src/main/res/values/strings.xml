@@ -23,4 +23,9 @@
         <item>cafe</item>
         <item>bocadillo</item>
     </string-array>
+    <string-array name="menuprincipal1">
+        <item>hamburgesa</item>
+        <item>patatas</item>
+        <item>bocadillo</item>
+    </string-array>
 </resources>
