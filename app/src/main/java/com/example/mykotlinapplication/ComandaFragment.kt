@@ -9,6 +9,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
+import com.example.mykotlinapplication.DataBase.ComandaDatabase
 import com.example.mykotlinapplication.databinding.FragmentComandaBinding
 import com.example.mykotlinapplication.sharedPref.SharedApp
 
@@ -25,7 +26,7 @@ class ComandaFragment : Fragment() {
         binding.textView2.setOnClickListener { view:View ->
             view.findNavController().navigate(R.id.action_comandaFragment_to_menuPFragment)
         }
-        val model = ViewModelProvider(requireActivity()).get(menuViewModel::class.java)
+        val model = ViewModelProvider(requireActivity()).get(MenuViewModel::class.java)
         model.message.observe(viewLifecycleOwner, Observer {
             binding.textViewComanda.text = it
         })
@@ -35,6 +36,12 @@ class ComandaFragment : Fragment() {
         model.message3.observe(viewLifecycleOwner, Observer {
             binding.textViewComanda3.text = it
         })
+
+        val application = requireNotNull(this.activity).application
+        val dataSource = ComandaDatabase.getInstance(application).comandaDatabaseDao
+        val viewModelFactory = RoomViewModelFactory(dataSource, application)
+        val roomViewModel = ViewModelProvider(this, viewModelFactory).get(RoomViewModel::class.java)
+
 
         return binding.root
     }

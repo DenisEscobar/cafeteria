@@ -11,7 +11,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.example.mykotlinapplication.databinding.FragmentMenuPBinding
 class MenuPFragment : Fragment() {
-    lateinit var model: menuViewModel
+    lateinit var model: MenuViewModel
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -27,12 +27,14 @@ class MenuPFragment : Fragment() {
             spinner.adapter = adapter
         }
 
+
         binding.textViewsigientemenu.setOnClickListener { view : View ->
                 view.findNavController().navigate(R.id.action_menuPFragment_to_menuSegundoFragment)
             }
-        binding.button2.setOnClickListener {view : View ->
+
+        binding.button2.setOnClickListener { view : View ->
             view.findNavController().navigate(R.id.action_menuPFragment_to_menuSegundoFragment)
-            model = ViewModelProvider(requireActivity()).get(menuViewModel::class.java)
+            model = ViewModelProvider(requireActivity()).get(MenuViewModel::class.java)
             model.sendMessage(binding.spinner2.selectedItem.toString())
 
         }

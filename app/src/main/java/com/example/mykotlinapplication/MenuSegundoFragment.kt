@@ -13,7 +13,7 @@ import androidx.navigation.findNavController
 import com.example.mykotlinapplication.databinding.FragmentMenuSegundoBinding
 
 class MenuSegundoFragment : Fragment() {
-    lateinit var model: menuViewModel
+    lateinit var model: MenuViewModel
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -34,7 +34,7 @@ class MenuSegundoFragment : Fragment() {
         }
         binding.button3.setOnClickListener{view: View ->
             view.findNavController().navigate(R.id.action_menuSegundoFragment_to_menuCafeFragment)
-            model = ViewModelProvider(requireActivity()).get(menuViewModel::class.java)
+            model = ViewModelProvider(requireActivity()).get(MenuViewModel::class.java)
             model.sendMessage2(binding.spinnermenu2.selectedItem.toString())
         }
         return binding.root

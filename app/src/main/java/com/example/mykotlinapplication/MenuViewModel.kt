@@ -3,7 +3,8 @@ package com.example.mykotlinapplication
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class menuViewModel : ViewModel(){
+class MenuViewModel  : ViewModel(){
+
     val message = MutableLiveData<String>()
     val message2 = MutableLiveData<String>()
     val message3 = MutableLiveData<String>()

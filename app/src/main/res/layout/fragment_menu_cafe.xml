@@ -4,6 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="DataBase.MenuCafeFragment">
 
+    <data>
+        <variable
+            name="menuViewModel"
+            type="com.example.mykotlinapplication.MenuViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/titleConstraint"
         android:layout_width="match_parent"
