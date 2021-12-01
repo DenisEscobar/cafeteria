@@ -10,7 +10,7 @@ data class Comanda(
     @PrimaryKey(autoGenerate = true)
     var IdCliente: Long = 0L,
     @ColumnInfo(name = "primer_plato")
-    val primerplato: String? = null,
+    var primerplato: String? = null,
     @ColumnInfo(name = "segundo_plato")
     var segundoplato: String? = null,
     @ColumnInfo(name = "tercer_plato")

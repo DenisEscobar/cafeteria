@@ -23,9 +23,7 @@ class ComandaFragment : Fragment() {
         val binding = DataBindingUtil.inflate<FragmentComandaBinding>(inflater,
             R.layout.fragment_comanda,container,false)
         binding.textView2.setText("Comanda De "+ SharedApp.prefs.name.toString())
-        binding.textView2.setOnClickListener { view:View ->
-            view.findNavController().navigate(R.id.action_comandaFragment_to_menuPFragment)
-        }
+
         val model = ViewModelProvider(requireActivity()).get(MenuViewModel::class.java)
         model.message.observe(viewLifecycleOwner, Observer {
             binding.textViewComanda.text = it
@@ -42,6 +40,14 @@ class ComandaFragment : Fragment() {
         val viewModelFactory = RoomViewModelFactory(dataSource, application)
         val roomViewModel = ViewModelProvider(this, viewModelFactory).get(RoomViewModel::class.java)
 
+        binding.buttonGuardarComanda.setOnClickListener { view:View ->
+            view.findNavController().navigate(R.id.action_comandaFragment_to_menuPFragment)
+            roomViewModel.onenviacomanda(model.getP1(), model.getp2(), model.getP3())
+        }
+        binding.buttonCancelarComanda.setOnClickListener { view:View ->
+            view.findNavController().navigate(R.id.action_comandaFragment_to_menuPFragment)
+            roomViewModel.oncancelar()
+        }
 
         return binding.root
     }

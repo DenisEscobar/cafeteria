@@ -13,7 +13,7 @@ interface ComandaDatabaseDao {
     @Update
     suspend fun update(Comanda: Comanda)
     @Query("SELECT * from comanda_table WHERE IdCliente = :key")
-    suspend fun get(key: Long): Comanda?
+    suspend fun getAllComandaForClient(key: Long): Comanda?
     @Query("DELETE FROM comanda_table")
     suspend fun clear()
     @Query("SELECT * FROM comanda_table ORDER BY IdCliente DESC LIMIT 1")
