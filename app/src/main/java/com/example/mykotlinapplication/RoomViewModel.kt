@@ -2,12 +2,10 @@ package com.example.mykotlinapplication
 
 import android.app.Application
 import android.widget.Toast
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.example.mykotlinapplication.DataBase.Comanda
 import com.example.mykotlinapplication.DataBase.ComandaDatabaseDao
+import com.example.mykotlinapplication.DataBase.log
 import kotlinx.coroutines.launch
 
 class RoomViewModel (
@@ -15,6 +13,16 @@ class RoomViewModel (
     application: Application
 ) : AndroidViewModel(application){
     private var comanda = MutableLiveData<Comanda?>()
+    private val coma = database.getAllcomanda()
+
+    private var infocorrecte=MutableLiveData<String>()
+    fun setinfo(text: String) {
+        infocorrecte.value = text
+    }
+    fun getinfo(): String {
+        return ""+infocorrecte.value
+    }
+
     init {
         initializeComanda()
     }
@@ -30,6 +38,7 @@ class RoomViewModel (
     fun verurecomanda(){
         viewModelScope.launch {
             comanda.value = getComandaFromDatabase()
+
         }
     }
     fun onenviacomanda(p1:String,p2:String,p3:String) {
@@ -55,4 +64,35 @@ class RoomViewModel (
         database.insert(comanda)
     }
 
+    fun log(name:String, pass:String){
+        viewModelScope.launch {
+            var a = comprobaruser(name, pass)
+            setinfo(a)
+        }
+    }
+    private fun comprobaruser(name:String, pass: String): String {
+        if(pass==database.getpasswd(name)) {
+            return "ok"
+        }
+        return "ko"
+    }
+    fun onRegisterUser(u:String, p:String, e:String) {
+        viewModelScope.launch {
+            val newuser = log()
+            newuser.Usuari=u
+            newuser.Password=p
+            newuser.Email=e
+            insertuser(newuser)
+        }
+    }
+    private fun insertuser(user: log) {
+        database.insertuser(user)
+    }
+
+    fun onLoginUser(user: String, pass: String): String {
+        if(pass==database.getpasswd(user)) {
+            return "ok"
+        }
+        return "ko"
+    }
 }

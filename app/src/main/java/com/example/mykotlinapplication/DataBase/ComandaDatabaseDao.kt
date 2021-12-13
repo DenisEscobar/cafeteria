@@ -21,5 +21,10 @@ interface ComandaDatabaseDao {
     @Query("SELECT * FROM comanda_table ORDER BY IdCliente DESC")
     fun getAllcomanda(): LiveData<List<Comanda>>
 
+//usuari
+    @Query("SELECT password FROM USER WHERE usuari= :name")
+    fun getpasswd(name: String): String
+    @Insert
+    fun insertuser(user: log)
 
 }

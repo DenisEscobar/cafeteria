@@ -50,4 +50,9 @@
             android:id="@+id/action_comandaFragment_to_menuPFragment"
             app:destination="@id/menuPFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/veureComandasFragment"
+        android:name="com.example.mykotlinapplication.VeureComandasFragment"
+        android:label="fragment_veure_comandas"
+        tools:layout="@layout/fragment_veure_comandas" />
 </navigation>
