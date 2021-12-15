@@ -19,7 +19,7 @@ interface ComandaDatabaseDao {
     @Query("SELECT * FROM comanda_table ORDER BY IdCliente DESC LIMIT 1")
     suspend fun getTocomanda(): Comanda?
     @Query("SELECT * FROM comanda_table ORDER BY IdCliente DESC")
-    fun getAllcomanda(): LiveData<List<Comanda>>
+    fun getAllcomanda(): List<Comanda>
 
 //usuari
     @Query("SELECT password FROM USER WHERE usuari= :name")

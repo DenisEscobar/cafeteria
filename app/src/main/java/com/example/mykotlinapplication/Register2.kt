@@ -24,7 +24,7 @@ class Register2 : AppCompatActivity() {
         if(textnom.text.toString()!=null && textpass.text.toString()!=null && textemail.text.toString()!=null){
             botonregistrar.setOnClickListener {
 
-                val application = requireNotNull(this.activity).application
+                val application = requireNotNull(this).application
                 val dataSource = ComandaDatabase.getInstance(application).comandaDatabaseDao
                 val viewModelFactory = RoomViewModelFactory(dataSource, application)
                 val roomViewModel = ViewModelProvider(this, viewModelFactory).get(RoomViewModel::class.java)

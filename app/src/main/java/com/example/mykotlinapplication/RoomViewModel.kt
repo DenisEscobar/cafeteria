@@ -13,8 +13,10 @@ class RoomViewModel (
     application: Application
 ) : AndroidViewModel(application){
     private var comanda = MutableLiveData<Comanda?>()
-    private val coma = database.getAllcomanda()
-
+fun vercom(): List<Comanda> {
+    val coma = database.getAllcomanda()
+    return coma
+}
     private var infocorrecte=MutableLiveData<String>()
     fun setinfo(text: String) {
         infocorrecte.value = text

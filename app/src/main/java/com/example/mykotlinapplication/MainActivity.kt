@@ -32,11 +32,12 @@ class MainActivity : AppCompatActivity() {
             SharedApp.prefs.name = binding.editTextName.text.toString()
 
             if (!binding.editTextName.text.toString().equals("")&&!binding.editTextTextPassword.text.toString().equals("")) {
-                val application = requireNotNull(this.activity).application
+                val application = requireNotNull(this).application
                 val dataSource = ComandaDatabase.getInstance(application).comandaDatabaseDao
                 val viewModelFactory = RoomViewModelFactory(dataSource, application)
                 val roomViewModel =
                     ViewModelProvider(this, viewModelFactory).get(RoomViewModel::class.java)
+                binding.setLifecycleOwner(this)
                 var a=roomViewModel.onLoginUser(
                     binding.editTextName.text.toString(),
                     binding.editTextTextPassword.text.toString()
