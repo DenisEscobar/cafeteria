@@ -10,6 +10,9 @@ import android.widget.Spinner
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.mykotlinapplication.DataBase.ComandaDatabase
 import com.example.mykotlinapplication.databinding.FragmentMenuSegundoBinding
 
 class MenuSegundoFragment : Fragment() {
@@ -22,7 +25,7 @@ class MenuSegundoFragment : Fragment() {
             inflater,
             R.layout.fragment_menu_segundo, container, false
         )
-var tipus="entrepans"
+var tipus="entrepan"
         val spinner: Spinner =binding.spinnermenu2
         ArrayAdapter.createFromResource(requireContext(),
             R.array.menuprincipal,
@@ -40,6 +43,20 @@ var tipus="entrepans"
             var preu=model.getpreu().toFloat().plus(4)
             model.sendPreu(preu.toString())
         }
+
+        val application = requireNotNull(this.activity).application
+        val dataSource = ComandaDatabase.getInstance(application).comandaDatabaseDao
+        val viewModelFactory = RoomViewModelFactory(dataSource, application)
+        val roomViewModel = ViewModelProvider(this, viewModelFactory).get(RoomViewModel::class.java)
+
+        val recyclerView: RecyclerView = binding.rviews
+        recyclerView.layoutManager= LinearLayoutManager(this.activity)
+        recyclerView.adapter=MenuAdapter(
+            application,
+            roomViewModel.primerplat(tipus),
+            model
+        )
+
         return binding.root
     }
 }

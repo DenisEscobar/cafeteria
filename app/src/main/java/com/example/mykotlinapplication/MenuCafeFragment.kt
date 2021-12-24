@@ -10,6 +10,9 @@ import android.widget.Spinner
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.mykotlinapplication.DataBase.ComandaDatabase
 import com.example.mykotlinapplication.databinding.FragmentMenuCafeBinding
 
 class MenuCafeFragment : Fragment() {
@@ -21,7 +24,7 @@ class MenuCafeFragment : Fragment() {
         val application = requireNotNull(this.activity).application
         val binding = DataBindingUtil.inflate<FragmentMenuCafeBinding>(inflater,
             R.layout.fragment_menu_cafe,container,false)
-var tipus="postres"
+var tipus="postre"
         val spinner: Spinner =binding.spinnermenucafe
         ArrayAdapter.createFromResource(requireContext(),
             R.array.menuprincipal,
@@ -36,6 +39,19 @@ var tipus="postres"
             var preu= model.getpreu().toFloat().plus(1)
             model.sendPreu(preu.toString())
         }
+
+        val dataSource = ComandaDatabase.getInstance(application).comandaDatabaseDao
+        val viewModelFactory = RoomViewModelFactory(dataSource, application)
+        val roomViewModel = ViewModelProvider(this, viewModelFactory).get(RoomViewModel::class.java)
+
+        val recyclerView: RecyclerView = binding.rviewt
+        recyclerView.layoutManager= LinearLayoutManager(this.activity)
+        recyclerView.adapter=MenuAdapter(
+            application,
+            roomViewModel.primerplat(tipus),
+            model
+        )
+
         return binding.root
     }
 }

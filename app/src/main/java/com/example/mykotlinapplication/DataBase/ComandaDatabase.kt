@@ -1,9 +1,12 @@
 package com.example.mykotlinapplication.DataBase
 
 import android.content.Context
+import androidx.lifecycle.ViewModelProvider
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.example.mykotlinapplication.RoomViewModel
+import com.example.mykotlinapplication.RoomViewModelFactory
 
 @Database(entities = [Comanda::class, log::class, platos::class], version = 3, exportSchema = false)
 abstract class ComandaDatabase : RoomDatabase() {
@@ -33,5 +36,4 @@ abstract class ComandaDatabase : RoomDatabase() {
             }
         }
     }
-
 }

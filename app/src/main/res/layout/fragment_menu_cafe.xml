@@ -23,8 +23,10 @@
             android:text="TextView cafe"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.535"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.116" />
 
         <Button
             android:id="@+id/button4"
@@ -33,8 +35,10 @@
             android:text="Button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.526"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewanterior" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewanterior"
+            app:layout_constraintVertical_bias="0.839" />
 
         <Spinner
             android:id="@+id/spinnermenucafe"
@@ -42,7 +46,19 @@
             android:layout_height="22dp"
             app:layout_constraintBottom_toTopOf="@+id/textViewanterior"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.122"
+            tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rviewt"
+            android:layout_width="409dp"
+            android:layout_height="486dp"
+            app:layout_constraintBottom_toTopOf="@+id/button4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewanterior" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

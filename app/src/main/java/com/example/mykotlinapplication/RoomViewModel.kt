@@ -69,18 +69,6 @@ fun vercom(): List<Comanda> {
         database.insert(comanda)
     }
 
-    fun log(name:String, pass:String){
-        viewModelScope.launch {
-            var a = comprobaruser(name, pass)
-            setinfo(a)
-        }
-    }
-    private fun comprobaruser(name:String, pass: String): String {
-        if(pass==database.getpasswd(name)) {
-            return "ok"
-        }
-        return "ko"
-    }
     fun onRegisterUser(u:String, p:String, e:String) {
         viewModelScope.launch {
             val newuser = log()
@@ -101,9 +89,9 @@ fun vercom(): List<Comanda> {
         return "ko"
     }
 
-
-    fun primerplat(tipus: String){
+    fun primerplat(tipus: String): List<platos> {
         var a = database.getplattipus(tipus)
+        return a
     }
     fun insertarplat(nom:String, preu:String, descripcio:String, categoria:String){
         val plat=platos()
@@ -112,5 +100,39 @@ fun vercom(): List<Comanda> {
         plat.DescripcioPlato=descripcio
         plat.CategoriaPlato=categoria
         database.insertplat(plat)
+    }
+
+    fun firstupdate(){
+        val plat=platos()
+        plat.NomPlato="coca-cola"
+        plat.PrecioPlato="2"
+        plat.DescripcioPlato="cola"
+        plat.CategoriaPlato="beguda"
+        database.insertplat(plat)
+        plat.NomPlato="fanta llimona"
+        plat.PrecioPlato="2"
+        plat.DescripcioPlato="llimona"
+        plat.CategoriaPlato="beguda"
+        database.insertplat(plat)
+        plat.NomPlato="fanta taronga"
+        plat.PrecioPlato="2"
+        plat.DescripcioPlato="taronga"
+        plat.CategoriaPlato="beguda"
+        database.insertplat(plat)
+
+        plat.NomPlato="entrepan fuet"
+        plat.PrecioPlato="3"
+        plat.DescripcioPlato="fuet"
+        plat.CategoriaPlato="entrepan"
+        database.insertplat(plat)
+
+        plat.NomPlato="cafe"
+        plat.PrecioPlato="1.5"
+        plat.DescripcioPlato="cafe"
+        plat.CategoriaPlato="postre"
+        database.insertplat(plat)
+
+
+
     }
 }

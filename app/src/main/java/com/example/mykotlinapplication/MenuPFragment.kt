@@ -9,6 +9,9 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.mykotlinapplication.DataBase.ComandaDatabase
 import com.example.mykotlinapplication.databinding.FragmentMenuPBinding
 class MenuPFragment : Fragment() {
     lateinit var model: MenuViewModel
@@ -18,7 +21,7 @@ class MenuPFragment : Fragment() {
     ): View? {
         val binding = DataBindingUtil.inflate<FragmentMenuPBinding>(inflater,
             R.layout.fragment_menu_p,container,false)
-var tipus="begudas"
+var tipus="beguda"
         val spinner: Spinner =binding.spinner2
         ArrayAdapter.createFromResource(requireContext(),
             R.array.menuprincipal1,
@@ -39,8 +42,23 @@ var tipus="begudas"
             model.sendPreu("2")
         }
         setHasOptionsMenu(true)
+
+        val application = requireNotNull(this.activity).application
+        val dataSource = ComandaDatabase.getInstance(application).comandaDatabaseDao
+        val viewModelFactory = RoomViewModelFactory(dataSource, application)
+        val roomViewModel = ViewModelProvider(this, viewModelFactory).get(RoomViewModel::class.java)
+
+        val recyclerView: RecyclerView = binding.rviewp
+        recyclerView.layoutManager= LinearLayoutManager(this.activity)
+        recyclerView.adapter=MenuAdapter(
+            application,
+            roomViewModel.primerplat(tipus),
+            model
+        )
+
         return binding.root
     }
+
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.options_menu, menu)
