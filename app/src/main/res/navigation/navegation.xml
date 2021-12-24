@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navegation"
-    app:startDestination="@id/menuPFragment">
+    app:startDestination="@id/elegirFragment">
 
     <fragment
         android:id="@+id/menuPFragment"
@@ -47,12 +47,24 @@
         android:label="ComandaFragment"
         tools:layout="@layout/fragment_comanda" >
         <action
-            android:id="@+id/action_comandaFragment_to_menuPFragment"
-            app:destination="@id/menuPFragment" />
+            android:id="@+id/action_comandaFragment_to_elegirFragment"
+            app:destination="@id/elegirFragment" />
     </fragment>
     <fragment
         android:id="@+id/veureComandasFragment"
         android:name="com.example.mykotlinapplication.VeureComandasFragment"
         android:label="fragment_veure_comandas"
         tools:layout="@layout/fragment_veure_comandas" />
+    <fragment
+        android:id="@+id/elegirFragment"
+        android:name="com.example.mykotlinapplication.ElegirFragment"
+        android:label="fragment_elegir"
+        tools:layout="@layout/fragment_elegir" >
+        <action
+            android:id="@+id/action_elegirFragment_to_veureComandasFragment"
+            app:destination="@id/veureComandasFragment" />
+        <action
+            android:id="@+id/action_elegirFragment_to_menuPFragment"
+            app:destination="@id/menuPFragment" />
+    </fragment>
 </navigation>

@@ -44,11 +44,11 @@ class ComandaFragment : Fragment() {
         val roomViewModel = ViewModelProvider(this, viewModelFactory).get(RoomViewModel::class.java)
 
         binding.buttonGuardarComanda.setOnClickListener { view:View ->
-            view.findNavController().navigate(R.id.action_comandaFragment_to_menuPFragment)
+            view.findNavController().navigate(R.id.action_comandaFragment_to_elegirFragment)
             roomViewModel.onenviacomanda(SharedApp.prefs.name.toString(),model.getP1(), model.getp2(), model.getP3(), model.getpreu())
         }
         binding.buttonCancelarComanda.setOnClickListener { view:View ->
-            view.findNavController().navigate(R.id.action_comandaFragment_to_menuPFragment)
+            view.findNavController().navigate(R.id.action_comandaFragment_to_elegirFragment)
             roomViewModel.oncancelar()
         }
 
