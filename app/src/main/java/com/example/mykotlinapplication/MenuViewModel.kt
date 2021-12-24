@@ -8,10 +8,12 @@ class MenuViewModel  : ViewModel(){
     val message = MutableLiveData<String>()
     val message2 = MutableLiveData<String>()
     val message3 = MutableLiveData<String>()
+    val preu = MutableLiveData<String>()
 
     fun getP1(): String {return ""+message.value}
     fun getp2(): String {return ""+message2.value}
     fun getP3(): String {return ""+message3.value}
+    fun getpreu(): String {return ""+preu.value}
 
     fun sendMessage(text: String) {
         message.value = text
@@ -19,5 +21,7 @@ class MenuViewModel  : ViewModel(){
         message2.value = text
     }fun sendMessage3(text: String) {
         message3.value = text
+    }fun sendPreu(text: String) {
+        preu.value = text
     }
 }

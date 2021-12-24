@@ -10,7 +10,6 @@ import android.widget.Spinner
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
-import com.example.mykotlinapplication.DataBase.ComandaDatabase
 import com.example.mykotlinapplication.databinding.FragmentMenuCafeBinding
 
 class MenuCafeFragment : Fragment() {
@@ -22,6 +21,7 @@ class MenuCafeFragment : Fragment() {
         val application = requireNotNull(this.activity).application
         val binding = DataBindingUtil.inflate<FragmentMenuCafeBinding>(inflater,
             R.layout.fragment_menu_cafe,container,false)
+var tipus="postres"
         val spinner: Spinner =binding.spinnermenucafe
         ArrayAdapter.createFromResource(requireContext(),
             R.array.menuprincipal,
@@ -33,6 +33,8 @@ class MenuCafeFragment : Fragment() {
             view.findNavController().navigate(R.id.action_menuCafeFragment_to_comandaFragment)
             model = ViewModelProvider(requireActivity()).get(MenuViewModel::class.java)
             model.sendMessage3(binding.spinnermenucafe.selectedItem.toString())
+            var preu= model.getpreu().toFloat().plus(1)
+            model.sendPreu(preu.toString())
         }
         return binding.root
     }

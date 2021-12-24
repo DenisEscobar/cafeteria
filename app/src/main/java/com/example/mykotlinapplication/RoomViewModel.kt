@@ -6,6 +6,7 @@ import androidx.lifecycle.*
 import com.example.mykotlinapplication.DataBase.Comanda
 import com.example.mykotlinapplication.DataBase.ComandaDatabaseDao
 import com.example.mykotlinapplication.DataBase.log
+import com.example.mykotlinapplication.DataBase.platos
 import kotlinx.coroutines.launch
 
 class RoomViewModel (
@@ -43,12 +44,14 @@ fun vercom(): List<Comanda> {
 
         }
     }
-    fun onenviacomanda(p1:String,p2:String,p3:String) {
+    fun onenviacomanda(n:String,p1:String,p2:String,p3:String,pr:String) {
         viewModelScope.launch {
             val newComanda = Comanda()
+            newComanda.nomclient=n
             newComanda.primerplato=p1
             newComanda.segundoplato=p2
             newComanda.tercerplato=p3
+            newComanda.preciototal=pr
             insert(newComanda)
             //comanda.value = getComandaFromDatabase()
 
@@ -96,5 +99,18 @@ fun vercom(): List<Comanda> {
             return "ok"
         }
         return "ko"
+    }
+
+
+    fun primerplat(tipus: String){
+        var a = database.getplattipus(tipus)
+    }
+    fun insertarplat(nom:String, preu:String, descripcio:String, categoria:String){
+        val plat=platos()
+        plat.NomPlato=nom
+        plat.PrecioPlato=preu
+        plat.DescripcioPlato=descripcio
+        plat.CategoriaPlato=categoria
+        database.insertplat(plat)
     }
 }

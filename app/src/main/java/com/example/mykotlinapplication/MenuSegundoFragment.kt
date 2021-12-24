@@ -22,6 +22,7 @@ class MenuSegundoFragment : Fragment() {
             inflater,
             R.layout.fragment_menu_segundo, container, false
         )
+var tipus="entrepans"
         val spinner: Spinner =binding.spinnermenu2
         ArrayAdapter.createFromResource(requireContext(),
             R.array.menuprincipal,
@@ -36,6 +37,8 @@ class MenuSegundoFragment : Fragment() {
             view.findNavController().navigate(R.id.action_menuSegundoFragment_to_menuCafeFragment)
             model = ViewModelProvider(requireActivity()).get(MenuViewModel::class.java)
             model.sendMessage2(binding.spinnermenu2.selectedItem.toString())
+            var preu=model.getpreu().toFloat().plus(4)
+            model.sendPreu(preu.toString())
         }
         return binding.root
     }

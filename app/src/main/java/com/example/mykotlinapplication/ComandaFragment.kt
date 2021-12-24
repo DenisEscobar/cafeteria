@@ -34,6 +34,9 @@ class ComandaFragment : Fragment() {
         model.message3.observe(viewLifecycleOwner, Observer {
             binding.textViewComanda3.text = it
         })
+        model.preu.observe(viewLifecycleOwner, Observer {
+            binding.textViewComandaPreu.text = it
+        })
 
         val application = requireNotNull(this.activity).application
         val dataSource = ComandaDatabase.getInstance(application).comandaDatabaseDao
@@ -42,7 +45,7 @@ class ComandaFragment : Fragment() {
 
         binding.buttonGuardarComanda.setOnClickListener { view:View ->
             view.findNavController().navigate(R.id.action_comandaFragment_to_menuPFragment)
-            roomViewModel.onenviacomanda(model.getP1(), model.getp2(), model.getP3())
+            roomViewModel.onenviacomanda(SharedApp.prefs.name.toString(),model.getP1(), model.getp2(), model.getP3(), model.getpreu())
         }
         binding.buttonCancelarComanda.setOnClickListener { view:View ->
             view.findNavController().navigate(R.id.action_comandaFragment_to_menuPFragment)

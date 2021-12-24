@@ -18,7 +18,7 @@ class MenuPFragment : Fragment() {
     ): View? {
         val binding = DataBindingUtil.inflate<FragmentMenuPBinding>(inflater,
             R.layout.fragment_menu_p,container,false)
-
+var tipus="begudas"
         val spinner: Spinner =binding.spinner2
         ArrayAdapter.createFromResource(requireContext(),
             R.array.menuprincipal1,
@@ -36,7 +36,7 @@ class MenuPFragment : Fragment() {
             view.findNavController().navigate(R.id.action_menuPFragment_to_menuSegundoFragment)
             model = ViewModelProvider(requireActivity()).get(MenuViewModel::class.java)
             model.sendMessage(binding.spinner2.selectedItem.toString())
-
+            model.sendPreu("2")
         }
         setHasOptionsMenu(true)
         return binding.root
