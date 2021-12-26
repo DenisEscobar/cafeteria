@@ -21,6 +21,7 @@ class MenuCafeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        model = ViewModelProvider(requireActivity()).get(MenuViewModel::class.java)
         val application = requireNotNull(this.activity).application
         val binding = DataBindingUtil.inflate<FragmentMenuCafeBinding>(inflater,
             R.layout.fragment_menu_cafe,container,false)
@@ -34,7 +35,6 @@ var tipus="postre"
         }
         binding.button4.setOnClickListener{view : View ->
             view.findNavController().navigate(R.id.action_menuCafeFragment_to_comandaFragment)
-            model = ViewModelProvider(requireActivity()).get(MenuViewModel::class.java)
             model.sendMessage3(binding.spinnermenucafe.selectedItem.toString())
             var preu= model.getpreu().toFloat().plus(1)
             model.sendPreu(preu.toString())

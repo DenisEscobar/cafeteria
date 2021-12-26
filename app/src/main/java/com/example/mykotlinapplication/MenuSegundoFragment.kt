@@ -21,6 +21,7 @@ class MenuSegundoFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        model = ViewModelProvider(requireActivity()).get(MenuViewModel::class.java)
         val binding = DataBindingUtil.inflate<FragmentMenuSegundoBinding>(
             inflater,
             R.layout.fragment_menu_segundo, container, false
@@ -38,7 +39,6 @@ var tipus="entrepan"
         }
         binding.button3.setOnClickListener{view: View ->
             view.findNavController().navigate(R.id.action_menuSegundoFragment_to_menuCafeFragment)
-            model = ViewModelProvider(requireActivity()).get(MenuViewModel::class.java)
             model.sendMessage2(binding.spinnermenu2.selectedItem.toString())
             var preu=model.getpreu().toFloat().plus(4)
             model.sendPreu(preu.toString())

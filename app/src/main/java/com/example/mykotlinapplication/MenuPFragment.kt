@@ -19,6 +19,7 @@ class MenuPFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        model = ViewModelProvider(requireActivity()).get(MenuViewModel::class.java)
         val binding = DataBindingUtil.inflate<FragmentMenuPBinding>(inflater,
             R.layout.fragment_menu_p,container,false)
 var tipus="beguda"
@@ -37,7 +38,6 @@ var tipus="beguda"
 
         binding.button2.setOnClickListener { view : View ->
             view.findNavController().navigate(R.id.action_menuPFragment_to_menuSegundoFragment)
-            model = ViewModelProvider(requireActivity()).get(MenuViewModel::class.java)
             model.sendMessage(binding.spinner2.selectedItem.toString())
             model.sendPreu("2")
         }
