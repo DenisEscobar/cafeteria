@@ -39,7 +39,8 @@ class MenuAdapter (private val context: Context,
         holder.itemView.setOnClickListener { view:View->
             if(data.CategoriaPlato=="beguda"){
                 menu.sendMessage(data.NomPlato.toString())
-                menu.sendPreu((menu.getpreu().toDouble().plus(data.PrecioPlato!!.toDouble())).toString())
+                var preu=data.PrecioPlato!!.toDouble()
+                menu.sendPreu(preu.toString())
                 view.findNavController().navigate(R.id.action_menuPFragment_to_menuSegundoFragment)
             }
             if(data.CategoriaPlato=="entrepan"){

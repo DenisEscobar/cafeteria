@@ -12,8 +12,8 @@ interface ComandaDatabaseDao {
     suspend fun insert(comanda: Comanda)
     @Update
     suspend fun update(Comanda: Comanda)
-    @Query("SELECT * from comanda_table WHERE IdComanda = :key")
-    suspend fun getAllComandaForClient(key: Long): Comanda?
+    @Query("SELECT * from comanda_table WHERE nom_client = :key")
+    fun getAllComandaForClient(key: String): List<Comanda>
     @Query("DELETE FROM comanda_table")
     suspend fun clear()
     @Query("SELECT * FROM comanda_table ORDER BY IdComanda DESC LIMIT 1")
@@ -22,8 +22,10 @@ interface ComandaDatabaseDao {
     fun getAllcomanda(): List<Comanda>
 
 //usuari
-    @Query("SELECT password FROM USER WHERE usuari= :name")
+    @Query("SELECT password FROM USER WHERE email= :name")
     fun getpasswd(name: String): String
+    @Query("SELECT usuari FROM USER WHERE email= :name")
+    fun getname(name: String): String
     @Insert
     fun insertuser(user: log)
 //plats

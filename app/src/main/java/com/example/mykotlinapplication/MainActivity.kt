@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         boton.setOnClickListener{
             mytextName.sql="a"
             //binding.editTextName.setText(mytextName.sql);
-            SharedApp.prefs.name = binding.editTextName.text.toString()
+            //SharedApp.prefs.name = binding.editTextName.text.toString()
 
             if (!binding.editTextName.text.toString().equals("")&&!binding.editTextTextPassword.text.toString().equals("")) {
                 val application = requireNotNull(this).application
@@ -42,8 +42,9 @@ class MainActivity : AppCompatActivity() {
                     binding.editTextName.text.toString(),
                     binding.editTextTextPassword.text.toString()
                 )
-
+//roomViewModel.firstupdate()
                 if(a=="ok") {
+                    SharedApp.prefs.name=roomViewModel.getuser(binding.editTextName.text.toString())
                     val intent = Intent(this, logged::class.java)
                     startActivity(intent)
                 }

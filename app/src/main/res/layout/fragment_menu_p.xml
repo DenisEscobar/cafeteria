@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorpantalla">
-
+<!--
         <TextView
             android:id="@+id/textViewsigientemenu"
             android:layout_width="wrap_content"
@@ -45,15 +45,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textViewsigientemenu"
             app:layout_constraintVertical_bias="0.821" />
-
+-->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rviewp"
             android:layout_width="409dp"
             android:layout_height="445dp"
-            app:layout_constraintBottom_toTopOf="@+id/button2"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewsigientemenu" />
+            app:layout_constraintTop_toTopOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

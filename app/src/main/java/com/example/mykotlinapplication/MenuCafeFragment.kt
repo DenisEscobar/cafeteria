@@ -26,6 +26,7 @@ class MenuCafeFragment : Fragment() {
         val binding = DataBindingUtil.inflate<FragmentMenuCafeBinding>(inflater,
             R.layout.fragment_menu_cafe,container,false)
 var tipus="postre"
+        /*
         val spinner: Spinner =binding.spinnermenucafe
         ArrayAdapter.createFromResource(requireContext(),
             R.array.menuprincipal,
@@ -39,6 +40,7 @@ var tipus="postre"
             var preu= model.getpreu().toFloat().plus(1)
             model.sendPreu(preu.toString())
         }
+         */
 
         val dataSource = ComandaDatabase.getInstance(application).comandaDatabaseDao
         val viewModelFactory = RoomViewModelFactory(dataSource, application)

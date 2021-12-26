@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.mykotlinapplication.DataBase.Comanda
 import com.example.mykotlinapplication.DataBase.ComandaDatabase
 import com.example.mykotlinapplication.databinding.FragmentVeureComandasBinding
+import com.example.mykotlinapplication.sharedPref.SharedApp
 
 class VeureComandasFragment : Fragment() {
     override fun onCreateView(
@@ -33,7 +34,7 @@ class VeureComandasFragment : Fragment() {
         recyclerView.layoutManager= LinearLayoutManager(this.activity)
         recyclerView.adapter=VeureComandaAdapter(
             application,
-            roomViewModel.vercom()
+            roomViewModel.vercomcli(SharedApp.prefs.name.toString())
         )
 
         return binding.root

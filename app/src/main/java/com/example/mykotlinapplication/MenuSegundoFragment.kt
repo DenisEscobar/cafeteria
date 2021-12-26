@@ -27,6 +27,7 @@ class MenuSegundoFragment : Fragment() {
             R.layout.fragment_menu_segundo, container, false
         )
 var tipus="entrepan"
+        /*
         val spinner: Spinner =binding.spinnermenu2
         ArrayAdapter.createFromResource(requireContext(),
             R.array.menuprincipal,
@@ -43,6 +44,7 @@ var tipus="entrepan"
             var preu=model.getpreu().toFloat().plus(4)
             model.sendPreu(preu.toString())
         }
+         */
 
         val application = requireNotNull(this.activity).application
         val dataSource = ComandaDatabase.getInstance(application).comandaDatabaseDao

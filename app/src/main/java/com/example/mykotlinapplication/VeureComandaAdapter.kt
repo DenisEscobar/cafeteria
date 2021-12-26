@@ -29,7 +29,7 @@ class VeureComandaAdapter(private val context: Context,
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val data = list[position]
-        holder.nametv.text = "data.IdCliente.toString()"
+        holder.nametv.text = data.preciototal+" €"
         holder.primertv.text = data.primerplato
         holder.segontv.text = data.segundoplato
         holder.tercertv.text = data.tercerplato

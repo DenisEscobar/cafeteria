@@ -23,6 +23,7 @@ class MenuPFragment : Fragment() {
         val binding = DataBindingUtil.inflate<FragmentMenuPBinding>(inflater,
             R.layout.fragment_menu_p,container,false)
 var tipus="beguda"
+        /*
         val spinner: Spinner =binding.spinner2
         ArrayAdapter.createFromResource(requireContext(),
             R.array.menuprincipal1,
@@ -41,6 +42,8 @@ var tipus="beguda"
             model.sendMessage(binding.spinner2.selectedItem.toString())
             model.sendPreu("2")
         }
+        */
+
         setHasOptionsMenu(true)
 
         val application = requireNotNull(this.activity).application

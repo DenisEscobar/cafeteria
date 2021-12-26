@@ -18,6 +18,10 @@ fun vercom(): List<Comanda> {
     val coma = database.getAllcomanda()
     return coma
 }
+fun vercomcli(a:String): List<Comanda> {
+    val coma = database.getAllComandaForClient(a)
+    return coma
+}
     private var infocorrecte=MutableLiveData<String>()
     fun setinfo(text: String) {
         infocorrecte.value = text
@@ -81,7 +85,10 @@ fun vercom(): List<Comanda> {
     private fun insertuser(user: log) {
         database.insertuser(user)
     }
-
+fun getuser(email:String): String {
+    var a= database.getname(email)
+    return a
+}
     fun onLoginUser(user: String, pass: String): String {
         if(pass==database.getpasswd(user)) {
             return "ok"
