@@ -8,6 +8,9 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.example.mykotlinapplication.R
 import com.example.mykotlinapplication.databinding.FragmentContactBinding
+import android.content.Intent
+import android.net.Uri
+
 
 class ContactFragment : Fragment() {
     override fun onCreateView(
@@ -16,7 +19,20 @@ class ContactFragment : Fragment() {
     ): View? {
         val binding = DataBindingUtil.inflate<FragmentContactBinding>(inflater,
             R.layout.fragment_contact,container,false)
-
+binding.textViewTelefono.setOnClickListener {
+    val intent = Intent(Intent.ACTION_DIAL)
+    intent.setData(Uri.parse("tel:666-666-666"));
+    startActivity(intent)
+}
+binding.textViewCorreo.setOnClickListener {
+    val mailClient = Intent(Intent.ACTION_VIEW)
+    mailClient.setClassName(
+        "com.google.android.gm",
+        "com.google.android.gm.ConversationListActivity"
+    )
+    mailClient.setData(Uri.parse("test@gmail.com"))
+    startActivity(mailClient)
+}
         return binding.root
     }
 }
