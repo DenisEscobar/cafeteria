@@ -8,4 +8,7 @@
     <item
         android:id="@+id/veureComandasFragment"
         android:title="Veure Comanda" />
+    <item
+        android:id="@+id/MenuPFragment"
+        android:title="hacer comanda" />
 </menu>
