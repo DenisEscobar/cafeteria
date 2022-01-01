@@ -26,11 +26,8 @@ binding.textViewTelefono.setOnClickListener {
 }
 binding.textViewCorreo.setOnClickListener {
     val mailClient = Intent(Intent.ACTION_VIEW)
-    mailClient.setClassName(
-        "com.google.android.gm",
-        "com.google.android.gm.ConversationListActivity"
-    )
-    mailClient.setData(Uri.parse("test@gmail.com"))
+    mailClient.setType("message/rfc822")
+    mailClient.setData(Uri.parse("mailto:test@gmail.com"))
     startActivity(mailClient)
 }
         return binding.root
