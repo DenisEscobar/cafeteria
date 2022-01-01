@@ -32,10 +32,10 @@ class MenuAdapter (private val context: Context,
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val data = list[position]
-//        holder.nametv.text = "data.IdCliente.toString()"
+        holder.nametv.text = " "
         holder.primertv.text = data.NomPlato
         holder.segontv.text = data.DescripcioPlato
-        holder.tercertv.text = data.PrecioPlato
+        holder.tercertv.text = data.PrecioPlato+" €"
         holder.itemView.setOnClickListener { view:View->
             if(data.CategoriaPlato=="beguda"){
                 menu.sendMessage(data.NomPlato.toString())
