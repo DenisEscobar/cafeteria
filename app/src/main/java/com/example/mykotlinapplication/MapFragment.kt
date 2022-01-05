@@ -34,3 +34,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .title("Marker"));
     }
 }
+// val mapFragment = SupportMapFragment.newInstance()
+// supportFragmentManager
+//     .beginTransaction()
+//     .add(R.id.my_container, mapFragment)
+//     .commit()
