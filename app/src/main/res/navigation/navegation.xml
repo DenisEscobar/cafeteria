@@ -67,4 +67,9 @@
             android:id="@+id/action_elegirFragment_to_menuPFragment"
             app:destination="@id/menuPFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/mapaFragment"
+        android:name="com.example.mykotlinapplication.MapaFragment"
+        android:label="fragment_mapa"
+        tools:layout="@layout/fragment_mapa" />
 </navigation>

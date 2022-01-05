@@ -9,6 +9,9 @@
         android:id="@+id/veureComandasFragment"
         android:title="Veure Comanda" />
     <item
-        android:id="@+id/MenuPFragment"
+        android:id="@+id/menuPFragment"
         android:title="hacer comanda" />
+    <item
+        android:id="@+id/mapaFragment"
+        android:title="mapa" />
 </menu>
