@@ -7,6 +7,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.example.mykotlinapplication.databinding.FragmentMapBinding
 
 // Implement OnMapReadyCallback.
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback {
