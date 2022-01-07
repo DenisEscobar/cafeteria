@@ -5,8 +5,11 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.mykotlinapplication.RoomViewModel
 import com.example.mykotlinapplication.RoomViewModelFactory
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 @Database(entities = [Comanda::class, log::class, platos::class, platofav::class], version = 4, exportSchema = false)
 abstract class ComandaDatabase : RoomDatabase() {
@@ -30,7 +33,7 @@ abstract class ComandaDatabase : RoomDatabase() {
                     .addCallback(object : Callback() {
                         override fun onCreate(db: SupportSQLiteDatabase) {
                             super.onCreate(db)
-                            Thread(Runnable { prepopulateDb(getInstance(context)) }).start()
+                            Thread(Runnable { prepopulate(getInstance(context)) }).start()
                         }
                     })
                         .fallbackToDestructiveMigration()
@@ -41,9 +44,10 @@ abstract class ComandaDatabase : RoomDatabase() {
                 return instance
             }
         }
-        private fun prepopulateDb(db: ComandaDatabase) {
+        private fun prepopulate(db: ComandaDatabase) {
             GlobalScope.launch {
                 val plat=platos()
+
                 plat.NomPlato="coca-cola"
                 plat.PrecioPlato="2.5"
                 plat.DescripcioPlato="cola"

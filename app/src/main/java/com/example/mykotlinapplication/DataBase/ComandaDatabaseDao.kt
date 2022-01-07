@@ -1,10 +1,7 @@
 package com.example.mykotlinapplication.DataBase
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.Query
-import androidx.room.Update
+import androidx.room.*
 
 @Dao
 interface ComandaDatabaseDao {
@@ -35,7 +32,11 @@ interface ComandaDatabaseDao {
     fun insertplat(platos: platos)
 //platfav
     @Insert
-    suspend fun insertfav(platofav: platofav)
-    @Query("SELECT NomPlato FROM platofav WHERE NomUser= :name")
+    fun insertfav(platofav: platofav)
+    @Query("SELECT * FROM platosfav WHERE nomUsuari= :name")
     fun getfav(name: String): List<platofav>
+    @Delete
+    fun deletefav(platofav: platofav)
+    @Query("SELECT * FROM platosfav WHERE nomUsuari= :name and nomPlato=:plat")
+    fun getafav(name: String, plat:String): platofav
 }

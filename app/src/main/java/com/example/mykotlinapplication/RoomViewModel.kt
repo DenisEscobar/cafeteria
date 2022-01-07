@@ -3,10 +3,8 @@ package com.example.mykotlinapplication
 import android.app.Application
 import android.widget.Toast
 import androidx.lifecycle.*
-import com.example.mykotlinapplication.DataBase.Comanda
-import com.example.mykotlinapplication.DataBase.ComandaDatabaseDao
-import com.example.mykotlinapplication.DataBase.log
-import com.example.mykotlinapplication.DataBase.platos
+import com.example.mykotlinapplication.DataBase.*
+import com.example.mykotlinapplication.sharedPref.SharedApp
 import kotlinx.coroutines.launch
 
 class RoomViewModel (
@@ -108,23 +106,37 @@ fun getuser(email:String): String {
         plat.CategoriaPlato=categoria
         database.insertplat(plat)
     }
-fun insertfav(a:String){
-     val fav=platos()
-        fav.NomPlato=a
-        fav.nomUsuari=SharedApp.prefs.name.toString()
-    database.insertfav(fav)
-}
+    fun getfav(name: String): List<platofav> {
+        var a = database.getfav(name)
+        return a
+    }
+    fun insertfav(a:String) {
+         val fav= platofav()
+            fav.NomPlato=a
+            fav.NomUsuari= SharedApp.prefs.name.toString()
+        insertafav(fav)
+    }
+    fun insertafav(fav:platofav){
+        database.insertfav(fav)
+    }
+    fun deletefav(a:String){
+        val fav=database.getafav(SharedApp.prefs.name.toString(),a)
+        database.deletefav(fav)
+    }
     fun firstupdate(){
         val plat=platos()
+
         plat.NomPlato="coca-cola"
         plat.PrecioPlato="2"
         plat.DescripcioPlato="cola"
         plat.CategoriaPlato="beguda"
         database.insertplat(plat)
+
         plat.NomPlato="fanta llimona"
         plat.PrecioPlato="2"
         plat.DescripcioPlato="llimona"
         plat.CategoriaPlato="beguda"
+
         database.insertplat(plat)
         plat.NomPlato="fanta taronga"
         plat.PrecioPlato="2"
@@ -143,8 +155,6 @@ fun insertfav(a:String){
         plat.DescripcioPlato="cafe"
         plat.CategoriaPlato="postre"
         database.insertplat(plat)
-
-
 
     }
 }

@@ -1,25 +1,36 @@
 package com.example.mykotlinapplication
 
 import android.content.Context
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.example.mykotlinapplication.DataBase.ComandaDatabase
+import com.example.mykotlinapplication.DataBase.platofav
 import com.example.mykotlinapplication.DataBase.platos
+import com.example.mykotlinapplication.sharedPref.SharedApp
 
-class MenuAdapter (private val context: Context,
-                   private val list: List<platos>,
-                   private val fav: List<platofav>,
-                   private val room: RoomViewModel,
-                   private val menuViewModel: MenuViewModel) : RecyclerView.Adapter<MenuAdapter.ViewHolder>() {
+class MenuAdapter(private val context: Context,
+                  private val list: List<platos>,
+                  private val fav: List<platofav>,
+                  private val menuViewModel: MenuViewModel,
+                  private val room: RoomViewModel
+                  ) : RecyclerView.Adapter<MenuAdapter.ViewHolder>() {
     val menu:MenuViewModel = menuViewModel
+    val roomView:RoomViewModel = room
     class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
         val nametv: TextView = view.findViewById(R.id.textViewName)
         val primertv: TextView = view.findViewById(R.id.textViewPrimer)
         val segontv: TextView = view.findViewById(R.id.textViewSegon)
         val tercertv: TextView = view.findViewById(R.id.textViewTercer)
+        val fav: Button = view.findViewById(R.id.buttonfav)
+        val pedir: Button = view.findViewById(R.id.buttonpedir)
+        var id=0
     }
 
 
@@ -38,20 +49,42 @@ class MenuAdapter (private val context: Context,
         holder.primertv.text = data.NomPlato
         holder.segontv.text = data.DescripcioPlato
         holder.tercertv.text = data.PrecioPlato+" €"
-      for(i=0; i<fav.count(); i++){
-        val favo = fav[i]
-        if(favo.NomUsuari==SharedApp.prefs.name.toString()){
+      for(i in fav){
+        val favo = i
+        if(favo.NomUsuari== SharedApp.prefs.name.toString()){
           if(data.NomPlato==favo.NomPlato){
-            holder.primertv.color(blue)
-          }else{
-            holder.primertv.color(black)
+              holder.primertv.setTextColor(Color.parseColor("#0000FF"))
+              holder.segontv.setTextColor(Color.parseColor("#0000FF"))
+              holder.tercertv.setTextColor(Color.parseColor("#0000FF"))
           }
         }
       }
-       holder.itemView.setOnLongClickListener{
-          room.insertfav(data.NomPlato)
+       holder.fav.setOnClickListener{
+           var a=0
+           for(i in fav) {
+               val favo = i
+               if (favo.NomUsuari == SharedApp.prefs.name.toString()) {
+                   if (data.NomPlato == favo.NomPlato) {
+                       a = 1
+                   }
+               }
+           }
+           if(a==0 && holder.id==0){
+               roomView.insertfav(data.NomPlato.toString())
+               holder.primertv.setTextColor(Color.parseColor("#0000FF"))
+               //holder.segontv.setTextColor(Color.parseColor("#0000FF"))
+               holder.tercertv.setTextColor(Color.parseColor("#0000FF"))
+               holder.id=1
+           }
+           else{
+               roomView.deletefav(data.NomPlato.toString())
+               holder.primertv.setTextColor(Color.parseColor("#000000"))
+               //holder.segontv.setTextColor(Color.parseColor("#000000"))
+               holder.tercertv.setTextColor(Color.parseColor("#000000"))
+               holder.id=0
+           }
        }
-        holder.itemView.setOnClickListener { view:View->
+        holder.pedir.setOnClickListener { view:View->
             if(data.CategoriaPlato=="beguda"){
                 menu.sendMessage(data.NomPlato.toString())
                 var preu=data.PrecioPlato!!.toDouble()

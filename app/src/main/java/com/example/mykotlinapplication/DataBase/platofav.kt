@@ -7,8 +7,10 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "platosfav")
 data class platofav(
+    @PrimaryKey(autoGenerate = true)
+    var Idfav: Long = 0L,
     @ColumnInfo(name = "nomPlato")
     var NomPlato: String? = null,
     @ColumnInfo(name = "nomUsuari")
-    var NomUser: String? = null,
+    var NomUsuari: String? = null,
     )

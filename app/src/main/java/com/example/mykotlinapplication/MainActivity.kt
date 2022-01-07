@@ -45,6 +45,8 @@ class MainActivity : AppCompatActivity() {
 //roomViewModel.firstupdate()
                 if(a=="ok") {
                     SharedApp.prefs.name=roomViewModel.getuser(binding.editTextName.text.toString())
+                    binding.editTextName.setText("")
+                    binding.editTextTextPassword.setText("")
                     val intent = Intent(this, logged::class.java)
                     startActivity(intent)
                 }

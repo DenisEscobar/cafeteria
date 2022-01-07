@@ -1,5 +1,6 @@
 package com.example.mykotlinapplication
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -25,4 +26,10 @@ class ElegirFragment : Fragment() {
         }
         return binding.root
     }
+
+//    @Override
+//    fun onBackPressed() {
+//        val intent = Intent(this.activity, MainActivity::class.java)
+//        startActivity(intent)
+//    }
 }

@@ -1,3 +1,4 @@
+/*
 class dialog(context: Context) {
   //android studio alert dialog kotlin
   val customDialog = AlertDialog.Builder(this)
@@ -25,4 +26,5 @@ class dialog(context: Context) {
     customDialog.show()
   }
 }
+*/
               

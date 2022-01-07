@@ -17,4 +17,4 @@ data class platos(
     var PrecioPlato: String? = null,
     @ColumnInfo(name = "categoria")
     var CategoriaPlato: String? = null,
-    )
+)

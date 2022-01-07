@@ -31,6 +31,9 @@ class Register2 : AppCompatActivity() {
                 roomViewModel.onRegisterUser(textnom.text.toString(), textpass.text.toString(), textemail.text.toString())
 
                 SharedApp.prefs.name = textnom.text.toString()
+                textnom.setText("")
+                textemail.setText("")
+                textpass.setText("")
                 val intent = Intent(this, logged::class.java)
                 startActivity(intent)
 

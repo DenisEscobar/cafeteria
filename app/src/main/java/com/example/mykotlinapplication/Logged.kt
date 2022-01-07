@@ -1,5 +1,6 @@
 package com.example.mykotlinapplication
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
@@ -31,4 +32,7 @@ class logged : AppCompatActivity() {
         val navController = this.findNavController(R.id.myNavHostFragment)
         return NavigationUI.navigateUp(navController, drawerLayout)
     }
+//    override fun onBackPressed() {
+//        super.onBackPressed()
+//    }
 }

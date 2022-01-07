@@ -2,9 +2,9 @@ package com.example.mykotlinapplication
 
 import android.os.Bundle
 import android.view.*
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
-import android.widget.ArrayAdapter
-import android.widget.Spinner
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mykotlinapplication.DataBase.ComandaDatabase
 import com.example.mykotlinapplication.databinding.FragmentMenuPBinding
+import com.example.mykotlinapplication.sharedPref.SharedApp
+
 class MenuPFragment : Fragment() {
     lateinit var model: MenuViewModel
     override fun onCreateView(
@@ -20,9 +22,11 @@ class MenuPFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         model = ViewModelProvider(requireActivity()).get(MenuViewModel::class.java)
-        val binding = DataBindingUtil.inflate<FragmentMenuPBinding>(inflater,
-            R.layout.fragment_menu_p,container,false)
-var tipus="beguda"
+        val binding = DataBindingUtil.inflate<FragmentMenuPBinding>(
+            inflater,
+            R.layout.fragment_menu_p, container, false
+        )
+        var tipus = "beguda"
         /*
         val spinner: Spinner =binding.spinner2
         ArrayAdapter.createFromResource(requireContext(),
@@ -50,13 +54,15 @@ var tipus="beguda"
         val dataSource = ComandaDatabase.getInstance(application).comandaDatabaseDao
         val viewModelFactory = RoomViewModelFactory(dataSource, application)
         val roomViewModel = ViewModelProvider(this, viewModelFactory).get(RoomViewModel::class.java)
-
+        binding.setLifecycleOwner(this)
         val recyclerView: RecyclerView = binding.rviewp
-        recyclerView.layoutManager= LinearLayoutManager(this.activity)
-        recyclerView.adapter=MenuAdapter(
+        recyclerView.layoutManager = LinearLayoutManager(this.activity)
+        recyclerView.adapter = MenuAdapter(
             application,
             roomViewModel.primerplat(tipus),
-            model
+            roomViewModel.getfav(SharedApp.prefs.name.toString()),
+            model,
+            roomViewModel
         )
 
         return binding.root
@@ -66,14 +72,22 @@ var tipus="beguda"
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.options_menu, menu)
     }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return NavigationUI.onNavDestinationSelected(item,requireView().findNavController())
+        return NavigationUI.onNavDestinationSelected(item, requireView().findNavController())
                 || super.onOptionsItemSelected(item)
     }
-}
-
-//onbackpressed
-@Override
-public void onBackPressed() {
-    
+//    @Override
+//    fun onBackPressed() {
+//        val application = requireNotNull(this.activity).application
+//        AlertDialog.Builder(application)
+//            .setMessage("You will lose command, are you sure?")
+//            .setPositiveButton(android.R.string.ok) { dialog, whichButton ->
+//
+//            }
+//            .setNegativeButton(android.R.string.cancel) { dialog, whichButton ->
+//
+//            }
+//            .show()
+//    }
 }

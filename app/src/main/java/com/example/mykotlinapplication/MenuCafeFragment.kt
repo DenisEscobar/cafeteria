@@ -5,15 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.Spinner
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.mykotlinapplication.DataBase.ComandaDatabase
 import com.example.mykotlinapplication.databinding.FragmentMenuCafeBinding
+import com.example.mykotlinapplication.sharedPref.SharedApp
 
 class MenuCafeFragment : Fragment() {
     lateinit var model: MenuViewModel
@@ -45,13 +43,15 @@ var tipus="postre"
         val dataSource = ComandaDatabase.getInstance(application).comandaDatabaseDao
         val viewModelFactory = RoomViewModelFactory(dataSource, application)
         val roomViewModel = ViewModelProvider(this, viewModelFactory).get(RoomViewModel::class.java)
-
+        binding.setLifecycleOwner(this)
         val recyclerView: RecyclerView = binding.rviewt
         recyclerView.layoutManager= LinearLayoutManager(this.activity)
         recyclerView.adapter=MenuAdapter(
             application,
             roomViewModel.primerplat(tipus),
-            model
+            roomViewModel.getfav(SharedApp.prefs.name.toString()),
+            model,
+            roomViewModel
         )
 
         return binding.root

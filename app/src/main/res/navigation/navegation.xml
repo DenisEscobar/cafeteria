@@ -13,7 +13,7 @@
         <action
             android:id="@+id/action_menuPFragment_to_menuSegundoFragment"
             app:destination="@id/menuSegundoFragment"
-            app:popUpTo="@id/menuPFragment"
+            app:popUpTo="@id/elegirFragment"
             app:popUpToInclusive="false" />
     </fragment>
     <fragment
@@ -23,7 +23,9 @@
         tools:layout="@layout/fragment_menu_cafe">
         <action
             android:id="@+id/action_menuCafeFragment_to_comandaFragment"
-            app:destination="@id/comandaFragment" />
+            app:destination="@id/comandaFragment"
+            app:popUpTo="@id/elegirFragment"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/menuSegundoFragment"
@@ -33,8 +35,8 @@
         <action
             android:id="@+id/action_menuSegundoFragment_to_menuCafeFragment"
             app:destination="@id/menuCafeFragment"
-            app:popUpTo="@id/menuSegundoFragment"
-            app:popUpToInclusive="true" />
+            app:popUpTo="@id/elegirFragment"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/contactFragment"
@@ -48,7 +50,9 @@
         tools:layout="@layout/fragment_comanda" >
         <action
             android:id="@+id/action_comandaFragment_to_elegirFragment"
-            app:destination="@id/elegirFragment" />
+            app:destination="@id/elegirFragment"
+            app:popUpTo="@id/elegirFragment"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/veureComandasFragment"
@@ -67,9 +71,4 @@
             android:id="@+id/action_elegirFragment_to_menuPFragment"
             app:destination="@id/menuPFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/mapaFragment"
-        android:name="com.example.mykotlinapplication.MapaFragment"
-        android:label="fragment_mapa"
-        tools:layout="@layout/fragment_mapa" />
 </navigation>
