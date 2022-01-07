@@ -71,3 +71,9 @@ var tipus="beguda"
                 || super.onOptionsItemSelected(item)
     }
 }
+
+//onbackpressed
+@Override
+public void onBackPressed() {
+    
+}
