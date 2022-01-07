@@ -108,7 +108,12 @@ fun getuser(email:String): String {
         plat.CategoriaPlato=categoria
         database.insertplat(plat)
     }
-
+fun insertfav(a:String){
+     val fav=platos()
+        fav.NomPlato=a
+        fav.nomUsuari=SharedApp.prefs.name.toString()
+    database.insertfav(fav)
+}
     fun firstupdate(){
         val plat=platos()
         plat.NomPlato="coca-cola"
