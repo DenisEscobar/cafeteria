@@ -11,6 +11,8 @@ import com.example.mykotlinapplication.DataBase.platos
 
 class MenuAdapter (private val context: Context,
                    private val list: List<platos>,
+                   private val fav: List<platofav>,
+                   private val room: RoomViewModel,
                    private val menuViewModel: MenuViewModel) : RecyclerView.Adapter<MenuAdapter.ViewHolder>() {
     val menu:MenuViewModel = menuViewModel
     class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
@@ -36,6 +38,19 @@ class MenuAdapter (private val context: Context,
         holder.primertv.text = data.NomPlato
         holder.segontv.text = data.DescripcioPlato
         holder.tercertv.text = data.PrecioPlato+" €"
+      for(i=0; i<fav.count(); i++){
+        val favo = fav[i]
+        if(favo.NomUsuari==SharedApp.prefs.name.toString()){
+          if(data.NomPlato==favo.NomPlato){
+            holder.primertv.color(blue)
+          }else{
+            holder.primertv.color(black)
+          }
+        }
+      }
+       holder.itemView.setOnLongClickListener{
+          room.insertfav(data.NomPlato)
+       }
         holder.itemView.setOnClickListener { view:View->
             if(data.CategoriaPlato=="beguda"){
                 menu.sendMessage(data.NomPlato.toString())
