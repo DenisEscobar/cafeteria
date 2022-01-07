@@ -10,7 +10,5 @@ data class platofav(
     @ColumnInfo(name = "nomPlato")
     var NomPlato: String? = null,
     @ColumnInfo(name = "nomUsuari")
-    var DescripcioPlato: String? = null,
-    @ColumnInfo(name = "fav")
-    var PrecioPlato: String? = null,
+    var NomUser: String? = null,
     )
