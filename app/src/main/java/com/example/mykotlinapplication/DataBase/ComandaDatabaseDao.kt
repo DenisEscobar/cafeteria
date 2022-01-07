@@ -33,4 +33,9 @@ interface ComandaDatabaseDao {
     fun getplattipus(tipo: String):List<platos>
     @Insert
     fun insertplat(platos: platos)
+//platfav
+    @Insert
+    suspend fun insertfav(platofav: platofav)
+    @Query("SELECT NomPlato FROM platofav WHERE NomUser= :name")
+    fun getfav(name: String): List<platofav>
 }
