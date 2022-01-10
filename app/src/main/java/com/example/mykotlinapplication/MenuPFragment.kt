@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.*
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
@@ -26,6 +27,7 @@ class MenuPFragment : Fragment() {
             inflater,
             R.layout.fragment_menu_p, container, false
         )
+        (activity as AppCompatActivity).supportActionBar?.title="Begudas"
         var tipus = "beguda"
         /*
         val spinner: Spinner =binding.spinner2

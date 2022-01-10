@@ -10,6 +10,7 @@ import com.example.mykotlinapplication.R
 import com.example.mykotlinapplication.databinding.FragmentContactBinding
 import android.content.Intent
 import android.net.Uri
+import androidx.appcompat.app.AppCompatActivity
 
 
 class ContactFragment : Fragment() {
@@ -19,6 +20,9 @@ class ContactFragment : Fragment() {
     ): View? {
         val binding = DataBindingUtil.inflate<FragmentContactBinding>(inflater,
             R.layout.fragment_contact,container,false)
+
+        (activity as AppCompatActivity).supportActionBar?.title="Contacto"
+
 binding.textViewTelefono.setOnClickListener {
     val intent = Intent(Intent.ACTION_DIAL)
     intent.setData(Uri.parse("tel:666-666-666"));

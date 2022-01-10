@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -24,6 +25,7 @@ class MenuSegundoFragment : Fragment() {
             inflater,
             R.layout.fragment_menu_segundo, container, false
         )
+        (activity as AppCompatActivity).supportActionBar?.title="Entrepans"
 var tipus="entrepan"
         /*
         val spinner: Spinner =binding.spinnermenu2

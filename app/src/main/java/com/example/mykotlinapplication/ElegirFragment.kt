@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import com.example.mykotlinapplication.databinding.FragmentElegirBinding
@@ -18,6 +19,7 @@ class ElegirFragment : Fragment() {
     ): View? {
         val binding = DataBindingUtil.inflate<FragmentElegirBinding>(inflater,
             R.layout.fragment_elegir,container,false)
+        (activity as AppCompatActivity).supportActionBar?.title="Inicio"
         binding.buttonHacerComanda.setOnClickListener {  view : View ->
             view.findNavController().navigate(R.id.action_elegirFragment_to_menuPFragment)
         }

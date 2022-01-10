@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -23,7 +24,7 @@ class ComandaFragment : Fragment() {
         val binding = DataBindingUtil.inflate<FragmentComandaBinding>(inflater,
             R.layout.fragment_comanda,container,false)
         binding.textView2.setText("Comanda De "+ SharedApp.prefs.name.toString())
-
+        (activity as AppCompatActivity).supportActionBar?.title="Comanda"
         val model = ViewModelProvider(requireActivity()).get(MenuViewModel::class.java)
         model.message.observe(viewLifecycleOwner, Observer {
             binding.textViewComanda.text = it

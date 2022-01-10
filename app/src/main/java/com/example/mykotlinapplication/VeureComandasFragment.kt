@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -21,6 +22,7 @@ class VeureComandasFragment : Fragment() {
     ): View? {
         val binding = DataBindingUtil.inflate<FragmentVeureComandasBinding>(inflater,
             R.layout.fragment_veure_comandas,container,false)
+        (activity as AppCompatActivity).supportActionBar?.title="Historial Comandas"
         binding.setLifecycleOwner(this)
         val application = requireNotNull(this.activity).application
         val dataSource = ComandaDatabase.getInstance(application).comandaDatabaseDao
