@@ -47,7 +47,7 @@ class MenuPFragment : Fragment() {
             model.sendPreu("2")
         }
         */
-
+binding.textView.text=tipus
         setHasOptionsMenu(true)
 
         val application = requireNotNull(this.activity).application

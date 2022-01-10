@@ -35,7 +35,7 @@ class ComandaFragment : Fragment() {
             binding.textViewComanda3.text = it
         })
         model.preu.observe(viewLifecycleOwner, Observer {
-            binding.textViewComandaPreu.text = it
+            binding.textViewComandaPreu.text = it + "€"
         })
 
         val application = requireNotNull(this.activity).application

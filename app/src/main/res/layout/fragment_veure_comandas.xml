@@ -21,7 +21,7 @@
             android:id="@+id/recycleView"
             android:layout_width="409dp"
             android:layout_height="411dp"
-            android:background="@color/white"
+            android:background="@color/colorpantalla"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

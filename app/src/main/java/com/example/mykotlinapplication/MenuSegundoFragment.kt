@@ -43,7 +43,7 @@ var tipus="entrepan"
             model.sendPreu(preu.toString())
         }
          */
-
+        binding.textView3.text=tipus
         val application = requireNotNull(this.activity).application
         val dataSource = ComandaDatabase.getInstance(application).comandaDatabaseDao
         val viewModelFactory = RoomViewModelFactory(dataSource, application)

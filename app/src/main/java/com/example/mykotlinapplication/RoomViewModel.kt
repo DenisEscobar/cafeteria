@@ -48,6 +48,8 @@ fun vercomcli(a:String): List<Comanda> {
     }
     fun onenviacomanda(n:String,p1:String,p2:String,p3:String,pr:String) {
         viewModelScope.launch {
+            var toast= Toast.makeText(getApplication(), "Guardado",Toast.LENGTH_SHORT)
+            toast.show()
             val newComanda = Comanda()
             newComanda.nomclient=n
             newComanda.primerplato=p1
@@ -56,9 +58,6 @@ fun vercomcli(a:String): List<Comanda> {
             newComanda.preciototal=pr
             insert(newComanda)
             //comanda.value = getComandaFromDatabase()
-
-            var toast= Toast.makeText(getApplication(), "Guardado",Toast.LENGTH_SHORT)
-            toast.show()
         }
     }
     fun oncancelar() {
