@@ -7,10 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.example.mykotlinapplication.DataBase.ComandaDatabase
 import com.example.mykotlinapplication.DataBase.platofav
 import com.example.mykotlinapplication.DataBase.platos
 import com.example.mykotlinapplication.sharedPref.SharedApp
@@ -24,10 +22,10 @@ class MenuAdapter(private val context: Context,
     val menu:MenuViewModel = menuViewModel
     val roomView:RoomViewModel = room
     class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
-        val nametv: TextView = view.findViewById(R.id.textViewName)
-        val primertv: TextView = view.findViewById(R.id.textViewPrimer)
-        val segontv: TextView = view.findViewById(R.id.textViewSegon)
-        val tercertv: TextView = view.findViewById(R.id.textViewTercer)
+        val nametv: TextView = view.findViewById(R.id.textViewName1)
+        val primertv: TextView = view.findViewById(R.id.textViewPrimer1)
+        val segontv: TextView = view.findViewById(R.id.textViewSegon1)
+        val tercertv: TextView = view.findViewById(R.id.textViewTercer1)
         val fav: Button = view.findViewById(R.id.buttonfav)
         val pedir: Button = view.findViewById(R.id.buttonpedir)
         var id=0
