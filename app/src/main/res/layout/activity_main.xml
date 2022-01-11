@@ -59,7 +59,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Email"
-            android:inputType="textWebEmailAddress|textPersonName"
+            android:inputType="textWebEmailAddress"
             android:minHeight="48dp"
             android:textColorHint="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"

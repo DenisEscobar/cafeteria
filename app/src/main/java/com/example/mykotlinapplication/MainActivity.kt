@@ -1,6 +1,7 @@
 package com.example.mykotlinapplication
 
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
@@ -25,12 +26,12 @@ class MainActivity : AppCompatActivity() {
             val intent= Intent(this, Register2::class.java)
             startActivity(intent)
         }
+        mytextName.sql=""
         val nom = binding.editTextName
         boton.setOnClickListener{
-            mytextName.sql="a"
             //binding.editTextName.setText(mytextName.sql);
             //SharedApp.prefs.name = binding.editTextName.text.toString()
-
+            binding.textsql.text=""
             if (!binding.editTextName.text.toString().equals("")&&!binding.editTextTextPassword.text.toString().equals("")) {
                 val application = requireNotNull(this).application
                 val dataSource = ComandaDatabase.getInstance(application).comandaDatabaseDao
@@ -49,7 +50,13 @@ class MainActivity : AppCompatActivity() {
                     binding.editTextTextPassword.setText("")
                     val intent = Intent(this, logged::class.java)
                     startActivity(intent)
+                }else{
+                    binding.textsql.text="Convinacion Incorrecta"
+                    binding.textsql.setTextColor(Color.parseColor("#CC0000"))
                 }
+            }else{
+                binding.textsql.text="Tienes que añadir datos a todos los campos"
+                binding.textsql.setTextColor(Color.parseColor("#CC0000"))
             }
         }
     }

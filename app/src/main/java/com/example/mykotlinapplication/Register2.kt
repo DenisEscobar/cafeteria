@@ -1,11 +1,13 @@
 package com.example.mykotlinapplication
 
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.example.mykotlinapplication.DataBase.ComandaDatabase
@@ -21,6 +23,7 @@ class Register2 : AppCompatActivity() {
         var textnom= findViewById<EditText>(R.id.editTextname) as EditText
         var textpass= findViewById<EditText>(R.id.editTextPassword) as EditText
         var textemail= findViewById<EditText>(R.id.editTextEmail) as EditText
+        var texterror= findViewById<TextView>(R.id.texterror) as TextView
         if(textnom.text.toString()!=null && textpass.text.toString()!=null && textemail.text.toString()!=null){
             botonregistrar.setOnClickListener {
 
@@ -38,7 +41,10 @@ class Register2 : AppCompatActivity() {
                 startActivity(intent)
 
             }
-        }else{}
+        }else{
+            texterror.text = "Los Campos no pueden estar vacios"
+            texterror.setTextColor(Color.parseColor("#CC0000"))
+        }
 
 
         val botonback = findViewById<Button>(R.id.buttonback) as Button

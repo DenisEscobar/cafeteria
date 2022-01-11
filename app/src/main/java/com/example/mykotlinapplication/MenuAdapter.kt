@@ -70,7 +70,7 @@ class MenuAdapter(private val context: Context,
            if(a==0 && holder.id==0){
                roomView.insertfav(data.NomPlato.toString())
                holder.primertv.setTextColor(Color.parseColor("#0000FF"))
-               //holder.segontv.setTextColor(Color.parseColor("#0000FF"))
+               holder.segontv.setTextColor(Color.parseColor("#0000FF"))
                holder.tercertv.setTextColor(Color.parseColor("#0000FF"))
                holder.id=1
                a=1
@@ -78,14 +78,14 @@ class MenuAdapter(private val context: Context,
            else if(a==0 && holder.id==1){
                roomView.deletefav(data.NomPlato.toString())
                holder.primertv.setTextColor(Color.parseColor("#000000"))
-               //holder.segontv.setTextColor(Color.parseColor("#000000"))
+               holder.segontv.setTextColor(Color.parseColor("#000000"))
                holder.tercertv.setTextColor(Color.parseColor("#000000"))
                holder.id=0
                a=0
            }else if(a==1 && holder.id==0){
                roomView.deletefav(data.NomPlato.toString())
                holder.primertv.setTextColor(Color.parseColor("#000000"))
-               //holder.segontv.setTextColor(Color.parseColor("#000000"))
+               holder.segontv.setTextColor(Color.parseColor("#000000"))
                holder.tercertv.setTextColor(Color.parseColor("#000000"))
                holder.id=1
                a=0
@@ -93,7 +93,7 @@ class MenuAdapter(private val context: Context,
            else if(a==1 && holder.id==1){
                roomView.insertfav(data.NomPlato.toString())
                holder.primertv.setTextColor(Color.parseColor("#0000FF"))
-               //holder.segontv.setTextColor(Color.parseColor("#0000FF"))
+               holder.segontv.setTextColor(Color.parseColor("#0000FF"))
                holder.tercertv.setTextColor(Color.parseColor("#0000FF"))
                holder.id=0
                a=1

@@ -27,7 +27,7 @@ class MenuPFragment : Fragment() {
             inflater,
             R.layout.fragment_menu_p, container, false
         )
-        (activity as AppCompatActivity).supportActionBar?.title="Begudas"
+        (activity as AppCompatActivity).supportActionBar?.title="Bebidas"
         var tipus = "beguda"
         /*
         val spinner: Spinner =binding.spinner2
@@ -49,7 +49,7 @@ class MenuPFragment : Fragment() {
             model.sendPreu("2")
         }
         */
-binding.textView.text=tipus
+binding.textView.text="Bebidas"
         setHasOptionsMenu(true)
 
         val application = requireNotNull(this.activity).application

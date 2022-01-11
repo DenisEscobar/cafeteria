@@ -25,7 +25,7 @@ class MenuSegundoFragment : Fragment() {
             inflater,
             R.layout.fragment_menu_segundo, container, false
         )
-        (activity as AppCompatActivity).supportActionBar?.title="Entrepans"
+        (activity as AppCompatActivity).supportActionBar?.title="Bocadillos"
 var tipus="entrepan"
         /*
         val spinner: Spinner =binding.spinnermenu2
@@ -45,7 +45,7 @@ var tipus="entrepan"
             model.sendPreu(preu.toString())
         }
          */
-        binding.textView3.text=tipus
+        binding.textView3.text="Bocadillos"
         val application = requireNotNull(this.activity).application
         val dataSource = ComandaDatabase.getInstance(application).comandaDatabaseDao
         val viewModelFactory = RoomViewModelFactory(dataSource, application)

@@ -41,7 +41,7 @@ var tipus="postre"
             model.sendPreu(preu.toString())
         }
          */
-        binding.textView4.text=tipus
+        binding.textView4.text="Postres"
         val dataSource = ComandaDatabase.getInstance(application).comandaDatabaseDao
         val viewModelFactory = RoomViewModelFactory(dataSource, application)
         val roomViewModel = ViewModelProvider(this, viewModelFactory).get(RoomViewModel::class.java)

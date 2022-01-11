@@ -4,10 +4,10 @@
 
     <item
         android:id="@+id/contactFragment"
-        android:title="@string/contact" />
+        android:title="contacto" />
     <item
         android:id="@+id/veureComandasFragment"
-        android:title="Veure Comanda" />
+        android:title="Ver Comanda" />
     <item
         android:id="@+id/menuPFragment"
         android:title="hacer comanda" />
