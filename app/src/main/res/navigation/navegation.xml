@@ -13,7 +13,6 @@
         <action
             android:id="@+id/action_menuPFragment_to_menuSegundoFragment"
             app:destination="@id/menuSegundoFragment"
-            app:popUpTo="@id/elegirFragment"
             app:popUpToInclusive="false" />
     </fragment>
     <fragment
@@ -24,7 +23,6 @@
         <action
             android:id="@+id/action_menuCafeFragment_to_comandaFragment"
             app:destination="@id/comandaFragment"
-            app:popUpTo="@id/elegirFragment"
             app:popUpToInclusive="false" />
     </fragment>
     <fragment
@@ -35,7 +33,6 @@
         <action
             android:id="@+id/action_menuSegundoFragment_to_menuCafeFragment"
             app:destination="@id/menuCafeFragment"
-            app:popUpTo="@id/elegirFragment"
             app:popUpToInclusive="false" />
     </fragment>
     <fragment
@@ -51,7 +48,6 @@
         <action
             android:id="@+id/action_comandaFragment_to_elegirFragment"
             app:destination="@id/elegirFragment"
-            app:popUpTo="@id/elegirFragment"
             app:popUpToInclusive="false" />
     </fragment>
     <fragment

@@ -109,12 +109,12 @@ class MenuAdapter(private val context: Context,
             if(data.CategoriaPlato=="entrepan"){
                 view.findNavController().navigate(R.id.action_menuSegundoFragment_to_menuCafeFragment)
                 menu.sendMessage2(data.NomPlato.toString())
-                menu.sendPreu((menu.getpreu().toDouble().plus(data.PrecioPlato!!.toDouble())).toString())
+                menu.sendPreu2(data.PrecioPlato.toString())
             }
             if(data.CategoriaPlato=="postre"){
                 view.findNavController().navigate(R.id.action_menuCafeFragment_to_comandaFragment)
                 menu.sendMessage3(data.NomPlato.toString())
-                menu.sendPreu((menu.getpreu().toDouble().plus(data.PrecioPlato!!.toDouble())).toString())
+                menu.sendPreu3(data.PrecioPlato.toString())
             }
 
         }
