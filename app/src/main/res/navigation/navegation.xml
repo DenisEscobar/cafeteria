@@ -48,7 +48,7 @@
         <action
             android:id="@+id/action_comandaFragment_to_elegirFragment"
             app:destination="@id/elegirFragment"
-            app:popUpToInclusive="false" />
+            app:popUpTo="@id/elegirFragment" />
     </fragment>
     <fragment
         android:id="@+id/veureComandasFragment"
@@ -67,4 +67,8 @@
             android:id="@+id/action_elegirFragment_to_menuPFragment"
             app:destination="@id/menuPFragment" />
     </fragment>
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.example.mykotlinapplication.MainActivity"
+        android:label="MainActivity" />
 </navigation>

@@ -24,8 +24,8 @@ class Register2 : AppCompatActivity() {
         var textpass= findViewById<EditText>(R.id.editTextPassword) as EditText
         var textemail= findViewById<EditText>(R.id.editTextEmail) as EditText
         var texterror= findViewById<TextView>(R.id.texterror) as TextView
-        if(textnom.text.toString()!=null && textpass.text.toString()!=null && textemail.text.toString()!=null){
-            botonregistrar.setOnClickListener {
+        botonregistrar.setOnClickListener {
+            if(!(textnom.text.toString().isEmpty() || textpass.text.toString().isEmpty() || textemail.text.toString().isEmpty())){
 
                 val application = requireNotNull(this).application
                 val dataSource = ComandaDatabase.getInstance(application).comandaDatabaseDao
@@ -40,10 +40,10 @@ class Register2 : AppCompatActivity() {
                 val intent = Intent(this, logged::class.java)
                 startActivity(intent)
 
+            }else{
+                texterror.text = "Los Campos no pueden estar vacios"
+                texterror.setTextColor(Color.parseColor("#CC0000"))
             }
-        }else{
-            texterror.text = "Los Campos no pueden estar vacios"
-            texterror.setTextColor(Color.parseColor("#CC0000"))
         }
 
 
