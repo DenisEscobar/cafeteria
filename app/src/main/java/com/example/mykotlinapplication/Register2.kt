@@ -40,7 +40,7 @@ class Register2 : AppCompatActivity() {
                     texterror.text = "Usuario Existente"
                     texterror.setTextColor(Color.parseColor("#CC0000"))
                 }else{
-                    roomViewModel.onRegisterUser(textnom.text.toString(), textpass.text.toString(), textemail.text.toString())
+                    roomViewModel.onRegisterUser(textnom.text.toString(), roomViewModel.encriptar(textpass.text.toString()), textemail.text.toString())
 
                     SharedApp.prefs.name = textnom.text.toString()
                     textnom.setText("")

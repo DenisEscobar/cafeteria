@@ -6,6 +6,8 @@ import androidx.lifecycle.*
 import com.example.mykotlinapplication.DataBase.*
 import com.example.mykotlinapplication.sharedPref.SharedApp
 import kotlinx.coroutines.launch
+import java.math.BigInteger
+import java.security.MessageDigest
 
 class RoomViewModel (
     val database: ComandaDatabaseDao,
@@ -162,5 +164,14 @@ fun getuser(email:String): String {
         plat.CategoriaPlato="postre"
         database.insertplat(plat)
 
+    }
+
+
+
+
+
+    fun encriptar(a:String):String{
+        val md=MessageDigest.getInstance("MD5")
+        return BigInteger(1,md.digest(a.toByteArray())).toString(16).padStart(32,'0')
     }
 }

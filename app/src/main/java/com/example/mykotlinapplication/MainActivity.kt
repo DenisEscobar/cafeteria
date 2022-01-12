@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
                 binding.setLifecycleOwner(this)
                 var a=roomViewModel.onLoginUser(
                     binding.editTextName.text.toString(),
-                    binding.editTextTextPassword.text.toString()
+                    roomViewModel.encriptar(binding.editTextTextPassword.text.toString())
                 )
 //roomViewModel.firstupdate()
                 if(a=="ok") {
