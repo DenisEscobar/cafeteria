@@ -23,6 +23,8 @@ interface ComandaDatabaseDao {
     fun getpasswd(name: String): String
     @Query("SELECT usuari FROM USER WHERE email= :name")
     fun getname(name: String): String
+    @Query("SELECT * FROM USER")
+    fun getuser(): List<log>
     @Insert
     fun insertuser(user: log)
 //plats

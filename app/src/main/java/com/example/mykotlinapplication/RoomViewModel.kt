@@ -20,6 +20,13 @@ fun vercomcli(a:String): List<Comanda> {
     val coma = database.getAllComandaForClient(a)
     return coma
 }
+
+    fun getuser(): List<log> {
+        val coma = database.getuser()
+        return coma
+    }
+
+
     private var infocorrecte=MutableLiveData<String>()
     fun setinfo(text: String) {
         infocorrecte.value = text

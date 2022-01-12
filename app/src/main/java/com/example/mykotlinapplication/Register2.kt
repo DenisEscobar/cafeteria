@@ -4,15 +4,11 @@ import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.findNavController
 import com.example.mykotlinapplication.DataBase.ComandaDatabase
-import com.example.mykotlinapplication.R
-import com.example.mykotlinapplication.databinding.ActivityMainBinding
 import com.example.mykotlinapplication.sharedPref.SharedApp
 
 class Register2 : AppCompatActivity() {
@@ -31,14 +27,28 @@ class Register2 : AppCompatActivity() {
                 val dataSource = ComandaDatabase.getInstance(application).comandaDatabaseDao
                 val viewModelFactory = RoomViewModelFactory(dataSource, application)
                 val roomViewModel = ViewModelProvider(this, viewModelFactory).get(RoomViewModel::class.java)
-                roomViewModel.onRegisterUser(textnom.text.toString(), textpass.text.toString(), textemail.text.toString())
 
-                SharedApp.prefs.name = textnom.text.toString()
-                textnom.setText("")
-                textemail.setText("")
-                textpass.setText("")
-                val intent = Intent(this, logged::class.java)
-                startActivity(intent)
+                var existe:Boolean=false
+                val a = roomViewModel.getuser()
+                for(i in a){
+                    if(i.Usuari==textnom.text.toString() || i.Email==textemail.text.toString()){
+                        existe=true
+                    }
+                }
+
+                if(existe){
+                    texterror.text = "Usuario Existente"
+                    texterror.setTextColor(Color.parseColor("#CC0000"))
+                }else{
+                    roomViewModel.onRegisterUser(textnom.text.toString(), textpass.text.toString(), textemail.text.toString())
+
+                    SharedApp.prefs.name = textnom.text.toString()
+                    textnom.setText("")
+                    textemail.setText("")
+                    textpass.setText("")
+                    val intent = Intent(this, logged::class.java)
+                    startActivity(intent)
+                }
 
             }else{
                 texterror.text = "Los Campos no pueden estar vacios"
