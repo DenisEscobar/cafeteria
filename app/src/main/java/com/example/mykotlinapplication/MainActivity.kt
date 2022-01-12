@@ -25,6 +25,8 @@ class MainActivity : AppCompatActivity() {
         register.setOnClickListener{
             val intent= Intent(this, Register2::class.java)
             startActivity(intent)
+            binding.editTextName.setText("")
+            binding.editTextTextPassword.setText("")
         }
         mytextName.sql=""
         val nom = binding.editTextName

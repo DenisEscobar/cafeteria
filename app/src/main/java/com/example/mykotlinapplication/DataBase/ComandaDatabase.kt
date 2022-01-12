@@ -28,7 +28,7 @@ abstract class ComandaDatabase : RoomDatabase() {
                     instance = Room.databaseBuilder(
                         context.applicationContext,
                         ComandaDatabase::class.java,
-                        "Coffe_Place_database"
+                        "Coffe_database"
                     )
                     .addCallback(object : Callback() {
                         override fun onCreate(db: SupportSQLiteDatabase) {

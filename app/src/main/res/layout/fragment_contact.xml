@@ -84,5 +84,26 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewTelefono"
         app:layout_constraintVertical_bias="0.38" />
 
+    <ImageView
+        android:id="@+id/imageViewphone"
+        android:layout_width="45dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="8dp"
+        android:src="@drawable/ic_baseline_local_phone_24"
+        app:layout_constraintBottom_toTopOf="@+id/textViewCorreo"
+        app:layout_constraintStart_toEndOf="@+id/textViewTelefono"
+        app:layout_constraintTop_toBottomOf="@+id/textViewNosotros" />
+
+    <ImageView
+        android:id="@+id/imageViewmail"
+        android:layout_width="43dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="4dp"
+        android:src="@drawable/ic_baseline_email_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textViewCorreo"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewphone"
+        app:layout_constraintVertical_bias="0.367" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

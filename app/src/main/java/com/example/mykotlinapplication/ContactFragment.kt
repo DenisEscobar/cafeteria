@@ -21,19 +21,21 @@ class ContactFragment : Fragment() {
         val binding = DataBindingUtil.inflate<FragmentContactBinding>(inflater,
             R.layout.fragment_contact,container,false)
         (activity as AppCompatActivity).supportActionBar?.title="Contacto"
-binding.textViewviewtelf.setOnClickListener { binding.textViewTelefono.callOnClick() }
-binding.textViewTelefono.setOnClickListener {
-    val intent = Intent(Intent.ACTION_DIAL)
-    intent.setData(Uri.parse("tel:"+binding.textViewTelefono.text.toString()));
-    startActivity(intent)
-}
-binding.textViewviewemail.setOnClickListener { binding.textViewCorreo.callOnClick() }
-binding.textViewCorreo.setOnClickListener {
-    val mailClient = Intent(Intent.ACTION_VIEW)
-    mailClient.setType("message/rfc822")
-    mailClient.setData(Uri.parse("mailto:"+binding.textViewCorreo.text.toString()))
-    startActivity(mailClient)
-}
+        binding.textViewviewtelf.setOnClickListener { binding.textViewTelefono.callOnClick() }
+        binding.imageViewphone.setOnClickListener { binding.textViewTelefono.callOnClick() }
+        binding.textViewTelefono.setOnClickListener {
+            val intent = Intent(Intent.ACTION_DIAL)
+            intent.setData(Uri.parse("tel:"+binding.textViewTelefono.text.toString()));
+            startActivity(intent)
+        }
+        binding.textViewviewemail.setOnClickListener { binding.textViewCorreo.callOnClick() }
+        binding.imageViewmail.setOnClickListener { binding.textViewCorreo.callOnClick() }
+        binding.textViewCorreo.setOnClickListener {
+            val mailClient = Intent(Intent.ACTION_VIEW)
+            mailClient.setType("message/rfc822")
+            mailClient.setData(Uri.parse("mailto:"+binding.textViewCorreo.text.toString()))
+            startActivity(mailClient)
+        }
         return binding.root
     }
 }
